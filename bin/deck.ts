@@ -11,9 +11,13 @@ import { downloadCatalogPlates, imageSize, resizeLongEdge } from "../src/downloa
 import { buildApkgPreview } from "../src/preview-apkg.js";
 import { lintManifest, stripBadBoxes } from "../src/lint.js";
 import {
+  applyAgentStep,
   applyStreamPayload,
   createDeckBuildProgress,
+  isAgentStepAction,
+  isDeckBuildStepId,
   progressSchema,
+  readDeckBuildProgress,
   type DeckBuildProgress,
 } from "../src/progress.js";
 
@@ -37,8 +41,9 @@ function usage(): never {
       "deck pack <manifest.json> [-o out.apkg] [--force]",
       "deck preview <deck.apkg> [-o outDir]",
       "deck progress [--schema] [--apply event.json]",
+      "deck step <find|fetch|ocr|align|qa|pack> <start|done|fail> [--job work/<id>]",
     ],
-    tip: "Run CLIs only. Fix manifest.json for lint. Do not edit TypeScript unless a CLI hard-fails.",
+    tip: "Run CLIs only. After plate pick: deck step find done. After vision+lint: deck step qa done.",
   });
   process.exit(0);
 }
@@ -299,6 +304,51 @@ async function main() {
         state = applyStreamPayload(state, payload);
       }
     }
+    print(state);
+    return;
+  }
+
+  if (cmd === "step") {
+    const args = [...rest];
+    const job = takeFlag(args, "--job");
+    const stepId = args.shift();
+    const action = args.shift();
+    if (!stepId || !isDeckBuildStepId(stepId)) {
+      throw new Error("usage: deck step <find|fetch|ocr|align|qa|pack> <start|done|fail> [--job work/<id>]");
+    }
+    if (!action || !isAgentStepAction(action)) {
+      throw new Error("usage: deck step <find|fetch|ocr|align|qa|pack> <start|done|fail> [--job work/<id>]");
+    }
+
+    const jobDir = job ? resolve(job) : undefined;
+    if (jobDir && !existsSync(jobDir)) {
+      throw new Error(`job dir not found: ${jobDir}`);
+    }
+
+    // Light evidence gates when --job is set (agent cannot mark pack/ocr done with nothing there).
+    if (jobDir && action === "done") {
+      if (stepId === "pack") {
+        const apkg = join(jobDir, "out", "deck.apkg");
+        if (!existsSync(apkg)) throw new Error(`pack done requires ${apkg}`);
+      }
+      if (stepId === "ocr") {
+        const ocr = join(jobDir, "ocr.json");
+        if (!existsSync(ocr)) throw new Error(`ocr done requires ${ocr}`);
+      }
+      if (stepId === "align" || stepId === "qa") {
+        const manifest = join(jobDir, "manifest.json");
+        if (!existsSync(manifest)) throw new Error(`${stepId} done requires ${manifest}`);
+      }
+    }
+
+    const progressPath = jobDir ? join(jobDir, "progress.json") : undefined;
+    let state: DeckBuildProgress = createDeckBuildProgress();
+    if (progressPath && existsSync(progressPath)) {
+      const loaded = readDeckBuildProgress(readJson<unknown>(progressPath));
+      if (loaded) state = loaded;
+    }
+    state = applyAgentStep(state, { id: stepId, action });
+    if (progressPath) writeJson(progressPath, state);
     print(state);
     return;
   }

@@ -73,6 +73,8 @@ Split OCR words (“Right” / “ventricle”)? One correct box in the **manife
 **Forbidden:** exploring `src/`, `node_modules/`, other projects, MCP, writing one-off `.py`/`.sh` helpers for merge/resize/OCR.
 
 - Prefer **Shell**: `npx tsx bin/deck.ts …`
+- After plate pick: `npx tsx bin/deck.ts step find done --job work/<id>`
+- After vision + lint clean: `npx tsx bin/deck.ts step qa done --job work/<id>`
 - Batch CLIs; don’t re-walk the repo between steps
 - After pack + `report.json`: **stop**
 
@@ -111,6 +113,7 @@ npx tsx bin/deck.ts job init <id> --from examples/<topic>   # or mkdir work/<id>
 # cache hit:
 npx tsx bin/deck.ts download <topic> -o work/<id>/plates
 # else: deck search "…" → curl/download URLs into work/<id>/plates (optionally update catalog)
+npx tsx bin/deck.ts step find done --job work/<id>   # after plates chosen
 npx tsx bin/deck.ts resize work/<id>/plates/*.jpg
 npx tsx bin/deck.ts ocr work/<id>/plates/*.jpg -o work/<id>/ocr.json
 npx tsx bin/deck.ts align work/<id>/ocr.json work/<id>/terms.txt \
@@ -118,6 +121,7 @@ npx tsx bin/deck.ts align work/<id>/ocr.json work/<id>/terms.txt \
 npx tsx bin/deck.ts lint work/<id>/manifest.json
 # vision-fix work/<id>/manifest.json  (optional: lint --fix then re-add boxes)
 npx tsx bin/deck.ts missing work/<id>/manifest.json work/<id>/terms.txt
+npx tsx bin/deck.ts step qa done --job work/<id>     # after vision + lint clean
 npx tsx bin/deck.ts pack work/<id>/manifest.json -o work/<id>/out/deck.apkg
 # write work/<id>/report.json → stop
 ```
@@ -130,6 +134,8 @@ npx tsx bin/deck.ts pack work/<id>/manifest.json -o work/<id>/out/deck.apkg
 Follow AGENTS.md. Scope: image-occlusion deck jobs only — refuse anything else.
 Freedom on search/plates/vision/manifest edits. Do not rewrite the pipeline (no src edits, no sips/merge/rebuild-manifest scripts).
 Run CLIs as `npx tsx bin/deck.ts <cmd>` so the app checklist can track progress.
+After plates are chosen: `npx tsx bin/deck.ts step find done --job work/<id>`.
+After vision-fix + lint/missing clean: `npx tsx bin/deck.ts step qa done --job work/<id>`.
 Build full image-occlusion deck for: <topic>
 Required terms ONLY: <paste>
 Catalog = cache; miss ⇒ deck search → download → ocr → align → lint → vision-fix manifest → pack + report.json. Stop.
