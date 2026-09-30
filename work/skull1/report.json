@@ -1,0 +1,29 @@
+{
+  "jobId": "skull1",
+  "deckName": "Axial Skeleton (Skull)",
+  "builtAt": "2026-09-30T15:35:00.000Z",
+  "plates": 12,
+  "catalogPlateIds": [
+    "openstax-skull-anterior",
+    "openstax-skull-lateral",
+    "openstax-skull-sagittal",
+    "openstax-skull-base",
+    "openstax-temporal",
+    "openstax-sphenoid",
+    "openstax-ethmoid",
+    "openstax-maxilla",
+    "openstax-hyoid",
+    "openstax-nasal-cavity",
+    "openstax-mandible",
+    "openstax-skull-posterior"
+  ],
+  "requiredTerms": 46,
+  "coveredTerms": 46,
+  "missingTerms": [],
+  "notes": 146,
+  "cards": 146,
+  "apkg": "work/skull1/out/deck.apkg",
+  "apkgBytes": 4026022,
+  "attribution": "OpenStax College anatomy plates (CC BY 3.0) via Wikimedia Commons.",
+  "qa": "Vision-corrected misaligned OCR on ethmoid, hyoid, mandible, maxilla, nasal cavity, sphenoid, temporal, posterior, and anterior plates after batch align."
+}
