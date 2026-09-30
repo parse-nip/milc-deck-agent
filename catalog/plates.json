@@ -121,6 +121,25 @@
       "url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/730_Posterior_View_Skull.jpg",
       "license": "CC BY 3.0",
       "credit": "OpenStax College"
+    },
+    {
+      "id": "openstax-wrist-hand",
+      "topics": ["hand", "carpals", "metacarpals", "phalanges"],
+      "view": "anterior-posterior",
+      "title": "Bones of the Wrist and Hand (OpenStax A&P 2e)",
+      "url": "https://openstax.org/apps/archive/20260604.144757/resources/541c7cf2586e9daaea40767bbc68011fdb8573b1",
+      "license": "CC BY 4.0",
+      "credit": "OpenStax Anatomy & Physiology 2e, section 8.2"
+    },
+    {
+      "id": "tanner-whitehouse-hand",
+      "topics": ["hand", "carpals", "metacarpals", "phalanges"],
+      "view": "palmar",
+      "title": "Hand and wrist bones (Tanner–Whitehouse)",
+      "commonsTitle": "File:Bones of the hand and wrist used for bone age estimation in the Tanner-Whitehouse method.svg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/0/08/Bones_of_the_hand_and_wrist_used_for_bone_age_estimation_in_the_Tanner-Whitehouse_method.svg",
+      "license": "CC BY-SA 4.0",
+      "credit": "Rrevia"
     }
   ]
 }
