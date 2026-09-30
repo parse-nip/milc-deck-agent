@@ -45,6 +45,17 @@ export async function downloadCatalogPlates(topic: string, destDir: string): Pro
   return { dir: destDir, plates };
 }
 
+function imageSizeIdentify(path: string): { width: number; height: number } | null {
+  try {
+    const out = execFileSync("identify", ["-format", "%w %h", path], { encoding: "utf8" }).trim();
+    const [w, h] = out.split(/\s+/).map(Number);
+    if (w > 0 && h > 0) return { width: w, height: h };
+  } catch {
+    // fall through
+  }
+  return null;
+}
+
 export function imageSize(path: string): { width: number; height: number } {
   try {
     const out = execFileSync("sips", ["-g", "pixelWidth", "-g", "pixelHeight", path], {
@@ -56,7 +67,9 @@ export function imageSize(path: string): { width: number; height: number } {
   } catch {
     // fall through
   }
-  throw new Error(`could not read image size for ${path} (need macOS sips)`);
+  const viaIdentify = imageSizeIdentify(path);
+  if (viaIdentify) return viaIdentify;
+  throw new Error(`could not read image size for ${path} (need sips or ImageMagick identify)`);
 }
 
 /** Resize so long edge is maxEdge; returns new size. Mutates file in place via sips. */
@@ -64,11 +77,20 @@ export function resizeLongEdge(path: string, maxEdge = 1600): { width: number; h
   const before = imageSize(path);
   const long = Math.max(before.width, before.height);
   if (long <= maxEdge) return { ...before, scaled: false };
-  const args =
-    before.width >= before.height
-      ? ["--resampleWidth", String(maxEdge), path]
-      : ["--resampleHeight", String(maxEdge), path];
-  execFileSync("sips", args, { stdio: "ignore" });
+  const scaledViaSips = () => {
+    const args =
+      before.width >= before.height
+        ? ["--resampleWidth", String(maxEdge), path]
+        : ["--resampleHeight", String(maxEdge), path];
+    execFileSync("sips", args, { stdio: "ignore" });
+  };
+  try {
+    scaledViaSips();
+  } catch {
+    const geometry =
+      before.width >= before.height ? `${maxEdge}x` : `x${maxEdge}`;
+    execFileSync("mogrify", ["-resize", geometry, path], { stdio: "ignore" });
+  }
   const after = imageSize(path);
   return { ...after, scaled: true };
 }
