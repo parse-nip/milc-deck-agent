@@ -1,5 +1,5 @@
 {
   "snapshot": "blank",
-  "install": "npm install",
+  "install": "sudo apt-get update -qq && sudo apt-get install -y -qq tesseract-ocr imagemagick && npm install",
   "terminals": []
 }
