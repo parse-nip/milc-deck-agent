@@ -1,52 +1,49 @@
-# Agent instructions — keep jobs cheap and fast
+# Agent instructions — accurate full decks, cheap tooling
 
-This repo exists so agents build occlusion decks **without** loading the Milc app monorepo.
+This repo builds **complete** image-occlusion Anki decks. Speed/cost come from **batch CLIs**, not from shipping tiny toy decks.
+
+## Priority order
+
+1. **Label accuracy** — every box label must be the real printed anatomy name (canonical form from `terms.txt`). Wrong OCR text is a failure.
+2. **Coverage** — required terms present wherever the plate actually labels them (same structure on multiple views is OK).
+3. **Cost** — batch tools; no repo tourism; no subagent swarms.
 
 ## Hard rules
 
-1. **Do not open image files in chat** unless `deck missing` reports a gap or OCR confidence is bad. Prefer CLIs that print JSON.
-2. **Batch everything.** One `deck search` / `deck ocr` / `deck pack` call beats per-term exploration.
-3. **No subagent swarms.** One agent, sequential tools.
-4. **Stop early.** If pack succeeds and missing list is empty, done. Do not polish indefinitely.
-5. **Spend mindset.** Target under ~$1 and under ~60s for plate decks; under ~$5 for large term lists when tools work.
-
-## Preferred model
-
-- Default: **Composer 2.5** (standard, not Fast) for cost
-- Speed test: Grok Fast is fine for short runs
-- Never escalate to Opus/Sonnet unless the user asks
+1. Build the **full** deck the brief asks for (all catalog plates for the topic unless the user caps it). Do not substitute a 2-plate smoke deck.
+2. **Batch CLIs first** (`download`, `ocr`, `align`, `missing`, `pack`). Prefer JSON over opening binaries in chat.
+3. **Vision is allowed and expected for label QA.** When OCR is wrong or a required term is missing on a plate that clearly shows it, open that plate (or a thumb) and fix the box/label. Do not invent structures that are not printed.
+4. Leave Header / Footer / Remarks / Sources **empty** on cards. Put attribution on the deck `desc` / `report.json`.
+5. Do not white-paint unused labels. Do not add mask boxes for labels you are not quizzing.
+6. Resize long edge to **1600px** before packing (`deck resize`).
+7. **No swarms.** One agent. Stop when `deck missing` is empty (or only terms absent from all plates) and `.apkg` exists.
+8. Preferred models: Composer 2.5 standard (cost) or Grok Fast (speed). No Opus unless asked.
 
 ## Workflow
 
 ```
-deck job init <id>
-→ fill work/<id>/brief.json (topic + required terms)
-→ deck catalog <topic>  OR  deck search "OpenStax <topic>"
-→ download plates into work/<id>/plates/ (curl)
-→ deck ocr work/<id>/plates/*.jpg  > work/<id>/ocr.json
-→ merge into work/<id>/manifest.json
-→ deck missing work/<id>/manifest.json work/<id>/terms.txt
-→ fix only misses (re-search / re-ocr those)
-→ deck pack work/<id>/manifest.json -o work/<id>/out/deck.apkg
-→ write work/<id>/report.json and stop
+npm install   # once
+# tesseract must be on PATH for OCR
+
+npx tsx bin/deck.ts job init <id> --from examples/skull
+npx tsx bin/deck.ts download skull -o work/<id>/plates
+npx tsx bin/deck.ts resize work/<id>/plates/*.jpg
+npx tsx bin/deck.ts ocr work/<id>/plates/*.jpg -o work/<id>/ocr.json
+npx tsx bin/deck.ts align work/<id>/ocr.json work/<id>/terms.txt \
+  --plates work/<id>/plates -o work/<id>/manifest.json
+npx tsx bin/deck.ts missing work/<id>/manifest.json work/<id>/terms.txt
+# vision-fix misses / bad labels on the specific plates only
+npx tsx bin/deck.ts pack work/<id>/manifest.json -o work/<id>/out/deck.apkg
+# write work/<id>/report.json → stop
 ```
-
-## Occlusion rules (from Milc)
-
-- Image Occlusion Enhanced note type
-- Leave Header / Footer / Remarks / Sources **empty** on cards
-- Do not paint white over unused labels; leave them visible
-- Do not add extra mask boxes for labels you are not quizzing
-- Same structure on multiple views is OK (not a duplicate bug)
-- Long edge 1600px when resizing
 
 ## Files to read (only if needed)
 
 | Need | File |
 |---|---|
 | Recipe | `docs/RECIPE.md` |
-| Manifest shape | `docs/manifest.schema.json` |
+| Manifest | `docs/manifest.schema.json` |
+| Skull terms | `examples/skull/terms.txt` |
 | Catalog | `catalog/plates.json` |
-| Packer | `src/pack.ts` |
 
-Do **not** dump entire `src/` into context. Call CLIs.
+Do **not** dump all of `src/` into context.

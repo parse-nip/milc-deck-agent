@@ -1,0 +1,46 @@
+Frontal bone
+Parietal bone
+Temporal bone
+Zygomatic process
+Mandibular fossa
+External acoustic meatus
+External auditory meatus
+Styloid process
+Mastoid process
+Occipital bone
+Foramen magnum
+Occipital condyle
+External occipital protuberance
+Sphenoid bone
+Sella turcica
+Optic canal
+Lesser wing
+Greater wing
+Ethmoid bone
+Cribriform plate
+Crista galli
+Perpendicular plate
+Superior nasal concha
+Middle nasal concha
+Inferior nasal concha
+Coronal suture
+Sagittal suture
+Lambdoid suture
+Squamous suture
+Maxilla
+Alveolar process of maxilla
+Alveolar process of mandible
+Infraorbital foramen
+Palatine bone
+Vomer bone
+Zygomatic bone
+Zygomatic arch
+Nasal bone
+Lacrimal bone
+Mandible
+Condylar process
+Mandibular condyle
+Mandibular foramen
+Mental foramen
+Coronoid process
+Hyoid bone

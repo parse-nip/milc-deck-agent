@@ -1,44 +1,48 @@
 # milc-deck-agent
 
-Tiny repo for building **image-occlusion Anki decks** with Cursor agents — optimized for **speed and token cost**.
+Slim repo for **full** image-occlusion Anki decks via Cursor agents — batch tools for cost, vision for **accurate labels**.
 
-Not the Milc app. No Next.js, no UI. Just:
+Not the Milc app. No Next.js.
 
-1. Find CC plates (catalog + Wikimedia Commons)
-2. OCR / propose boxes (batch)
+1. Find CC plates (catalog + Commons)
+2. OCR → align to required terms → vision-fix misses
 3. Pack `manifest.json` → `.apkg`
 
-## Agent rules (read `AGENTS.md`)
+## Agent rules
 
-- Prefer **batch CLIs** over opening images in chat
-- Only inspect images when a term/plate is **missing or low-confidence**
-- Use Composer 2.5 standard (or Grok Fast) for short jobs; avoid swarms
+Read **`AGENTS.md`**. Accuracy first; tiny smoke decks are not the goal.
 
 ## Quick start
 
 ```bash
 npm install
+# needs: tesseract on PATH; macOS sips for resize/size
 npx tsx bin/deck.ts help
 ```
 
-## Job layout
+## Example: full skull deck
 
-```
-work/<job-id>/
-  brief.json          # topic, required terms, constraints
-  plates/             # downloaded images
-  manifest.json       # boxes + metadata → packer input
-  out/deck.apkg
-  report.json         # missing terms, costs notes
+```bash
+npx tsx bin/deck.ts job init skull1 --from examples/skull
+npx tsx bin/deck.ts download skull -o work/skull1/plates
+npx tsx bin/deck.ts resize work/skull1/plates/*.jpg
+npx tsx bin/deck.ts ocr work/skull1/plates/*.jpg -o work/skull1/ocr.json
+npx tsx bin/deck.ts align work/skull1/ocr.json work/skull1/terms.txt \
+  --plates work/skull1/plates --name "Axial Skeleton (Skull)" \
+  -o work/skull1/manifest.json
+npx tsx bin/deck.ts missing work/skull1/manifest.json work/skull1/terms.txt
+npx tsx bin/deck.ts pack work/skull1/manifest.json -o work/skull1/out/deck.apkg
 ```
 
 ## CLIs
 
 | Command | Purpose |
 |---|---|
-| `deck search <query>` | Commons search (license-filtered) |
-| `deck catalog <topic>` | Local curated plate hits |
-| `deck ocr <image...>` | Tesseract box propose (needs `tesseract` on PATH) |
-| `deck pack <manifest>` | Build `.apkg` |
-| `deck missing <manifest> <terms.txt>` | Diff required terms vs labels |
-| `deck job init <id>` | Create `work/<id>/` skeleton |
+| `job init --from examples/skull` | Seed brief + terms |
+| `catalog` / `search` | Find plates |
+| `download <topic>` | Fetch all catalog plates |
+| `resize` | Long edge 1600px |
+| `ocr` | Tesseract boxes (batch) |
+| `align` | Map OCR → canonical terms |
+| `missing` | Coverage report |
+| `pack` | Write `.apkg` |

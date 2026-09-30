@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "notes": "Curated OpenStax / Commons plates. Prefer these over open search when topic matches.",
+  "notes": "OpenStax A&P skull / axial plates on Wikimedia Commons. Prefer catalog over open search.",
   "plates": [
     {
       "id": "openstax-skull-anterior",
@@ -39,6 +39,86 @@
       "title": "707 Superior-Inferior View of Skull Base (OpenStax)",
       "commonsTitle": "File:707 Superior-Inferior View of Skull Base-01.jpg",
       "url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/707_Superior-Inferior_View_of_Skull_Base-01.jpg",
+      "license": "CC BY 3.0",
+      "credit": "OpenStax College"
+    },
+    {
+      "id": "openstax-temporal",
+      "topics": ["skull", "axial-skeleton", "temporal"],
+      "view": "temporal",
+      "title": "708 Temporal Bone (OpenStax)",
+      "commonsTitle": "File:708 Temporal Bone.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/4/43/708_Temporal_Bone.jpg",
+      "license": "CC BY 3.0",
+      "credit": "OpenStax College"
+    },
+    {
+      "id": "openstax-sphenoid",
+      "topics": ["skull", "axial-skeleton", "sphenoid"],
+      "view": "sphenoid",
+      "title": "709 Sphenoid Bone (OpenStax)",
+      "commonsTitle": "File:709 Sphenoid Bone.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/709_Sphenoid_Bone.jpg",
+      "license": "CC BY 3.0",
+      "credit": "OpenStax College"
+    },
+    {
+      "id": "openstax-ethmoid",
+      "topics": ["skull", "axial-skeleton", "ethmoid"],
+      "view": "ethmoid",
+      "title": "710 Ethmoid Bone (OpenStax)",
+      "commonsTitle": "File:710 Ethmoid Bone.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/1/12/710_Ethmoid_Bone.jpg",
+      "license": "CC BY 3.0",
+      "credit": "OpenStax College"
+    },
+    {
+      "id": "openstax-maxilla",
+      "topics": ["skull", "axial-skeleton", "maxilla"],
+      "view": "maxilla",
+      "title": "711 Maxilla (OpenStax)",
+      "commonsTitle": "File:711 Maxilla.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/a/a0/711_Maxilla.jpg",
+      "license": "CC BY 3.0",
+      "credit": "OpenStax College"
+    },
+    {
+      "id": "openstax-hyoid",
+      "topics": ["skull", "axial-skeleton", "hyoid"],
+      "view": "hyoid",
+      "title": "712 Hyoid Bone (OpenStax)",
+      "commonsTitle": "File:712 Hyoid Bone.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/8/83/712_Hyoid_Bone.jpg",
+      "license": "CC BY 3.0",
+      "credit": "OpenStax College"
+    },
+    {
+      "id": "openstax-nasal-cavity",
+      "topics": ["skull", "axial-skeleton", "nasal"],
+      "view": "nasal-cavity",
+      "title": "714 Bone of Nasal Cavity (OpenStax)",
+      "commonsTitle": "File:714 Bone of Nasal Cavity.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/9/99/714_Bone_of_Nasal_Cavity.jpg",
+      "license": "CC BY 3.0",
+      "credit": "OpenStax College"
+    },
+    {
+      "id": "openstax-mandible",
+      "topics": ["skull", "axial-skeleton", "mandible"],
+      "view": "mandible",
+      "title": "726 Mandible (OpenStax)",
+      "commonsTitle": "File:726 Mandible.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/e/e7/726_Mandible.jpg",
+      "license": "CC BY 3.0",
+      "credit": "OpenStax College"
+    },
+    {
+      "id": "openstax-skull-posterior",
+      "topics": ["skull", "axial-skeleton", "cranium"],
+      "view": "posterior",
+      "title": "730 Posterior View Skull (OpenStax)",
+      "commonsTitle": "File:730 Posterior View Skull.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/730_Posterior_View_Skull.jpg",
       "license": "CC BY 3.0",
       "credit": "OpenStax College"
     }
