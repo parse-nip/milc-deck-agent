@@ -121,6 +121,46 @@
       "url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/730_Posterior_View_Skull.jpg",
       "license": "CC BY 3.0",
       "credit": "OpenStax College"
+    },
+    {
+      "id": "openstax-hand-wrist",
+      "topics": ["hand", "appendicular-skeleton", "wrist"],
+      "view": "anterior-posterior",
+      "title": "806 Hand and Wrist (OpenStax)",
+      "commonsTitle": "File:806 Hand and Wrist.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/4/41/806_Hand_and_Wrist.jpg",
+      "license": "CC BY 3.0",
+      "credit": "OpenStax College"
+    },
+    {
+      "id": "commons-metacarpus-ant",
+      "topics": ["hand", "appendicular-skeleton", "metacarpal"],
+      "view": "anterior",
+      "title": "Metacarpus anterior with label",
+      "commonsTitle": "File:Metacarpus ant with label.png",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Metacarpus_ant_with_label.png",
+      "license": "CC BY-SA 3.0",
+      "credit": "Palica"
+    },
+    {
+      "id": "gray-hand-219",
+      "topics": ["hand", "appendicular-skeleton"],
+      "view": "palmar",
+      "title": "Gray219 Hand bones",
+      "commonsTitle": "File:Gray219.png",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Gray219.png",
+      "license": "Public domain",
+      "credit": "Henry Vandyke Carter"
+    },
+    {
+      "id": "commons-carpal-bones",
+      "topics": ["hand", "appendicular-skeleton", "carpal"],
+      "view": "anterior",
+      "title": "Carpal bones labeled",
+      "commonsTitle": "File:Carpal bones.png",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Carpal_bones.png",
+      "license": "CC BY-SA 3.0",
+      "credit": "Commons contributors"
     }
   ]
 }
