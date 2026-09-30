@@ -16,7 +16,7 @@ Read **`AGENTS.md`**. Accuracy first; tiny smoke decks are not the goal.
 
 ```bash
 npm install
-# needs: tesseract on PATH; macOS sips for resize/size
+# needs: tesseract + ImageMagick on PATH (Linux cloud: apt-get install -y tesseract-ocr imagemagick)
 npx tsx bin/deck.ts help
 ```
 

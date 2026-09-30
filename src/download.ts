@@ -64,15 +64,8 @@ export async function downloadCatalogPlates(topic: string, destDir: string): Pro
   return { dir: destDir, plates };
 }
 
-/** Read pixel size via macOS sips or ImageMagick (identify / magick). */
+/** Read pixel size via ImageMagick (identify / magick). Linux cloud agents only. */
 export function imageSize(path: string): { width: number; height: number } {
-  const sips = tryExec("sips", ["-g", "pixelWidth", "-g", "pixelHeight", path], { encoding: "utf8" });
-  if (sips) {
-    const width = Number(/pixelWidth:\s*(\d+)/.exec(sips)?.[1]);
-    const height = Number(/pixelHeight:\s*(\d+)/.exec(sips)?.[1]);
-    if (width > 0 && height > 0) return { width, height };
-  }
-
   for (const args of [
     ["identify", ["-format", "%w %h", path]],
     ["magick", ["identify", "-format", "%w %h", path]],
@@ -84,13 +77,13 @@ export function imageSize(path: string): { width: number; height: number } {
   }
 
   throw new Error(
-    `could not read image size for ${path}. Install ImageMagick (apt-get install -y imagemagick) or use macOS sips. Do not edit src/download.ts.`
+    `could not read image size for ${path}. Run: apt-get install -y imagemagick. Do not edit src/ or invent sips shims.`
   );
 }
 
 /**
  * Resize so long edge is maxEdge. Mutates file in place.
- * Tries: sips → magick → mogrify → convert (covers macOS + IM6/IM7 Linux).
+ * ImageMagick only: magick → mogrify → convert (Linux).
  */
 export function resizeLongEdge(path: string, maxEdge = 1600): { width: number; height: number; scaled: boolean } {
   const before = imageSize(path);
@@ -100,19 +93,14 @@ export function resizeLongEdge(path: string, maxEdge = 1600): { width: number; h
   const useWidth = before.width >= before.height;
   const geometry = useWidth ? `${maxEdge}x` : `x${maxEdge}`;
 
-  const sipsArgs = useWidth
-    ? ["--resampleWidth", String(maxEdge), path]
-    : ["--resampleHeight", String(maxEdge), path];
-
   const ok =
-    tryExec("sips", sipsArgs, { stdio: "ignore" }) !== null ||
     tryExec("magick", [path, "-resize", geometry, path], { stdio: "ignore" }) !== null ||
     tryExec("mogrify", ["-resize", geometry, path], { stdio: "ignore" }) !== null ||
     tryExec("convert", [path, "-resize", geometry, path], { stdio: "ignore" }) !== null;
 
   if (!ok) {
     throw new Error(
-      `could not resize ${path}. Install ImageMagick (apt-get install -y imagemagick) or use macOS sips. Do not edit src/download.ts.`
+      `could not resize ${path}. Run: apt-get install -y imagemagick. Do not edit src/ or invent sips shims.`
     );
   }
 

@@ -12,7 +12,7 @@ This repo builds **complete** image-occlusion Anki decks. The CLIs are the produ
 ## Do not code (default)
 
 - **Do not edit `src/`, `bin/`, tests, or package files.** The pipeline is already Linux-ready.
-- If `deck resize` / image size fails: run **`apt-get install -y imagemagick`** (or ensure `sips` on macOS). Errors say this explicitly. **Never edit `src/download.ts`.**
+- If `deck resize` / image size fails: run **`apt-get install -y imagemagick`**. Cloud agents are **Linux only** — no macOS, no `sips`, no sips shims. **Never edit `src/download.ts`.**
 - If something else hard-fails: install deps / `npm install` first. Only patch tooling as a last resort, smallest change, note why in `report.json`.
 - **Never** "improve" align/OCR/pack logic mid-job. Fix `work/<id>/manifest.json` instead.
 - Prefer short CLI JSON. Do not cat large files or images into chat.
@@ -43,7 +43,7 @@ Users can ask for **any** anatomy topic and a **custom term list**. Do not assum
 4. `deck lint --fix` only strips offenders if you choose to; then re-box dropped labels with vision. Do not silently ship without coverage.
 5. Small **unmasked** printed labels are intentional (not quizzing those). Giant bars are bugs.
 6. Header / Footer / Remarks / Sources empty on cards. Attribution on deck `desc` / `report.json`.
-7. Resize uses **sips → magick → mogrify → convert** already. Missing tools ⇒ install ImageMagick, don't code.
+7. Resize is **ImageMagick only** (`magick` / `mogrify` / `convert`). Missing ⇒ `apt-get install -y imagemagick`. Never invent a `sips` shim.
 8. No subagent swarms. One agent.
 9. Models: Composer 2.5 standard (cost) or Grok 4.7 standard (harder vision). No Opus unless asked.
 
