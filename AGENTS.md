@@ -1,52 +1,53 @@
 # Agent instructions — run the pipeline, don't reinvent it
 
 This repo builds **complete** image-occlusion Anki decks on **Linux cloud agents**.
-The CLIs are the product. Your job is to **run them and fix deck data** (`work/<id>/manifest.json`), **not** to rewrite TypeScript, invent shims, or add helper scripts.
+The CLIs are the product. **Judgment is yours** (which plates, which boxes, how to fix labels). **The pipeline is not** — don't rebuild it with one-off scripts.
+
+## Freedom vs rails
+
+**Free (quality lives here):** agentic Commons search, plate picks, vision on images, deciding shrink/split/drop/re-box, editing `work/<id>/manifest.json` / `terms.txt` / catalog cache entries, how thorough QA should be.
+
+**Not free (burns cost, rarely helps):** rewriting `src/`/`bin/`, inventing resize/OCR/merge/pack helpers, “rebuild manifest with a script” instead of editing the JSON, Mac/`sips` shims, expanding the user's term list, MCP/repo tourism.
+
+When something looks wrong after OCR/align: **open the plate, edit the boxes in `manifest.json`**, re-lint. Do not write a script to regenerate the manifest.
 
 ## Priority order
 
 1. **Label accuracy** — canonical names from `terms.txt` that match printed plate text.
 2. **Coverage** — required terms where the plate actually labels them.
 3. **Geometry** — no full-width / absurd bars (`deck lint`).
-4. **Cost** — few turns; no coding; no repo tourism; minimal tools.
+4. **Cost** — few turns; no coding the pipeline; minimal tools.
 
 ---
 
-## Banned (you will be graded on this)
-
-Do **none** of these. They are the usual failure modes:
+## Banned (cheap mistakes)
 
 | Ban | Do this instead |
 |---|---|
-| Edit `src/`, `bin/`, tests, `package.json`, lockfiles | Fix `work/<id>/manifest.json` / terms / catalog only |
-| Invent a **`sips` shim** or any Mac workaround | `sudo apt-get install -y imagemagick` (env install should already do this) |
-| Write a **merge-boxes / OCR / align / pack script** | Pipeline already does it — see below |
-| “Improve” OCR/align/lint mid-job | Re-run CLI; vision-edit manifest |
-| Read or Grep `src/` to “understand” resize/OCR | Trust `deck …` CLIs + this file |
-| Open MCP / browse unrelated repos | Stay in this repo’s allowed paths |
+| Edit `src/`, `bin/`, tests, package files | Edit `work/<id>/manifest.json` (and terms/catalog as needed) |
+| `sips` shim / Mac workarounds | `sudo apt-get install -y imagemagick` |
+| Merge/OCR/align/pack / “rebuild manifest” scripts | CLIs already ran; vision-edit the existing JSON |
+| “Improve” OCR/align mid-job | Re-run CLI if needed; then fix data |
 | Expand the user’s term list | Only the terms they gave |
-| Ship full-width occlusion bars | Lint → shrink / split / drop+re-box with vision |
-| Tiny smoke decks when a full deck was asked | Full coverage of requested terms on suitable plates |
+| Full-width occlusion bars | Lint → shrink / split / drop+re-box with vision |
 
-If a CLI errors, **install the missing binary** or re-run with correct args. Do not open `src/download.ts` / `src/ocr.ts` / `src/align.ts`.
+If a CLI errors, install the missing binary or fix args. Do not open `src/` to “fix” it.
 
 ---
 
-## What the pipeline already does (do not reimplement)
+## What the pipeline already does
 
-| Step | CLI | Already handled |
+| Step | CLI | Notes |
 |---|---|---|
-| Find plates | `deck catalog` / `deck search` / download URLs | Commons search; catalog = **cache** of past wins |
-| Resize | `deck resize` | **ImageMagick only** (`magick` → `mogrify` → `convert`). No macOS. |
-| OCR | `deck ocr` | Tesseract TSV + **merges nearby words into multi-word labels** (e.g. “Right ventricle”). Do **not** write a merge script. |
-| Align | `deck align` | Maps OCR strings → canonical `terms.txt` |
-| Geometry | `deck lint` | Flags `too_wide` / `too_tall` (often left+right labels glued) |
-| Gaps | `deck missing` | Terms not yet boxed |
-| Pack | `deck pack` | Builds `.apkg` (lint must pass) |
+| Find plates | `catalog` / `search` / download | Catalog = **cache** of past wins, not an allowlist |
+| Resize | `deck resize` | ImageMagick only (`magick` → `mogrify` → `convert`) |
+| OCR | `deck ocr` | Already merges nearby words into multi-word labels |
+| Align | `deck align` | OCR → canonical terms |
+| Geometry | `deck lint` | Flags absurd boxes |
+| Gaps | `deck missing` | Terms still unboxed |
+| Pack | `deck pack` | Lint must pass |
 
-**Your real work after align:** vision on plates → edit boxes/labels in `manifest.json` → re-lint → pack.
-
-Split words still unmatched (“Right” / “ventricle” separate)? Fix **in the manifest** (one box, correct term), or drop junk OCR boxes — **do not** add a new merger.
+Split OCR words (“Right” / “ventricle”)? One correct box in the **manifest** — not a new merger.
 
 ---
 
@@ -120,12 +121,10 @@ npx tsx bin/deck.ts pack work/<id>/manifest.json -o work/<id>/out/deck.apkg
 ## Cloud launch prompt (paste)
 
 ```
-Follow AGENTS.md exactly. Banned: editing src/, sips shims, merge/OCR helper scripts, expanding terms, MCP, repo tourism.
+Follow AGENTS.md. Freedom on search/plates/vision/manifest edits. Do not rewrite the pipeline (no src edits, no sips/merge/rebuild-manifest scripts).
 Build full image-occlusion deck for: <topic>
 Required terms ONLY: <paste>
-Catalog = cache. Miss ⇒ deck search → download → pipeline.
-OCR already merges multi-word labels. After align: lint + vision-fix manifest.json only.
-Pack + report.json. Optionally cache plates in catalog/plates.json. Stop.
+Catalog = cache; miss ⇒ deck search → download → ocr → align → lint → vision-fix manifest → pack + report.json. Stop.
 ```
 
 ---
