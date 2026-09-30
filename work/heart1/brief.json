@@ -1,0 +1,8 @@
+{
+  "topic": "heart-chambers-valves",
+  "deckName": "Heart — chambers & valves",
+  "desc": "Image occlusion for chambers, valves, and great vessels. Plates: OpenStax Anatomy & Physiology on Wikimedia Commons (CC BY 3.0).",
+  "requiredTermsFile": "work/heart1/terms.txt",
+  "maxPlates": 8,
+  "notes": "Job heart1 — search-sourced OpenStax heart plates; 16 required terms only."
+}

@@ -1,0 +1,53 @@
+{
+  "jobId": "heart1",
+  "topic": "Heart — chambers & valves",
+  "builtAt": "2026-09-30T16:25:00Z",
+  "deck": {
+    "name": "Heart — chambers & valves",
+    "notes": 42,
+    "cards": 42,
+    "apkg": "work/heart1/out/deck.apkg"
+  },
+  "terms": {
+    "required": 16,
+    "missing": []
+  },
+  "plates": [
+    {
+      "id": "2005_Surface_Anatomy_of_the_Heart",
+      "file": "plates/2005_Surface_Anatomy_of_the_Heart.jpg",
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/3/31/2005_Surface_Anatomy_of_the_Heart.jpg",
+      "license": "CC BY 3.0",
+      "artist": "OpenStax College"
+    },
+    {
+      "id": "2007_Ventricular_Muscle_Thickness",
+      "file": "plates/2007_Ventricular_Muscle_Thickness.jpg",
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/2007_Ventricular_Muscle_Thickness.jpg",
+      "license": "CC BY 3.0",
+      "artist": "OpenStax College"
+    },
+    {
+      "id": "2008_Internal_Anatomy_of_the_HeartN",
+      "file": "plates/2008_Internal_Anatomy_of_the_HeartN.jpg",
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/9/92/2008_Internal_Anatomy_of_the_HeartN.jpg",
+      "license": "CC BY 3.0",
+      "artist": "OpenStax College"
+    },
+    {
+      "id": "2010_Chordae_Tendinae_Papillary_Muscles",
+      "file": "plates/2010_Chordae_Tendinae_Papillary_Muscles.jpg",
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a7/2010_Chordae_Tendinae_Papillary_Muscles.jpg",
+      "license": "CC BY 3.0",
+      "artist": "OpenStax College"
+    },
+    {
+      "id": "2011_Heart_Valves",
+      "file": "plates/2011_Heart_Valves.jpg",
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b9/2011_Heart_Valves.jpg",
+      "license": "CC BY 3.0",
+      "artist": "OpenStax College"
+    }
+  ],
+  "notes": "Dropped 2006_Heart_Musculature (no required-term labels). Vision-fixed OCR merge bars in manifest. Linux build used tools/sips shim for resize."
+}

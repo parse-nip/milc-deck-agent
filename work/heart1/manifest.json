@@ -1,0 +1,357 @@
+{
+  "deck": {
+    "name": "Heart — chambers & valves",
+    "desc": "Image occlusion deck (OpenStax A&P plates, CC BY 3.0). Wikimedia Commons. Job heart1."
+  },
+  "plates": [
+    {
+      "id": "2005_Surface_Anatomy_of_the_Heart",
+      "file": "plates/2005_Surface_Anatomy_of_the_Heart.jpg",
+      "width": 2233,
+      "height": 2100,
+      "header": "",
+      "boxes": [
+        {
+          "x": 424,
+          "y": 320,
+          "width": 271,
+          "height": 36,
+          "label": "Aorta"
+        },
+        {
+          "x": 1690,
+          "y": 445,
+          "width": 328,
+          "height": 28,
+          "label": "Left atrium"
+        },
+        {
+          "x": 1692,
+          "y": 711,
+          "width": 208,
+          "height": 28,
+          "label": "Left ventricle"
+        },
+        {
+          "x": 426,
+          "y": 741,
+          "width": 233,
+          "height": 36,
+          "label": "Right ventricle"
+        },
+        {
+          "x": 426,
+          "y": 931,
+          "width": 291,
+          "height": 28,
+          "label": "Inferior vena cava"
+        },
+        {
+          "x": 803,
+          "y": 1171,
+          "width": 89,
+          "height": 28,
+          "label": "Aorta"
+        },
+        {
+          "x": 1691,
+          "y": 1184,
+          "width": 318,
+          "height": 36,
+          "label": "Superior vena cava"
+        },
+        {
+          "x": 426,
+          "y": 1349,
+          "width": 342,
+          "height": 36,
+          "label": "Pulmonary veins"
+        },
+        {
+          "x": 1692,
+          "y": 1416,
+          "width": 198,
+          "height": 36,
+          "label": "Right atrium"
+        },
+        {
+          "x": 424,
+          "y": 1436,
+          "width": 328,
+          "height": 28,
+          "label": "Left atrium"
+        },
+        {
+          "x": 426,
+          "y": 1496,
+          "width": 173,
+          "height": 28,
+          "label": "Left atrium"
+        },
+        {
+          "x": 1692,
+          "y": 1499,
+          "width": 291,
+          "height": 28,
+          "label": "Inferior vena cava"
+        },
+        {
+          "x": 426,
+          "y": 1801,
+          "width": 195,
+          "height": 28,
+          "label": "Left ventricle"
+        },
+        {
+          "x": 1690,
+          "y": 116,
+          "width": 200,
+          "height": 36,
+          "label": "Superior vena cava"
+        },
+        {
+          "x": 426,
+          "y": 344,
+          "width": 220,
+          "height": 36,
+          "label": "Pulmonary trunk"
+        },
+        {
+          "x": 1692,
+          "y": 1319,
+          "width": 280,
+          "height": 36,
+          "label": "Pulmonary veins"
+        },
+        {
+          "x": 423,
+          "y": 472,
+          "width": 200,
+          "height": 28,
+          "label": "Pulmonary veins"
+        }
+      ],
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/3/31/2005_Surface_Anatomy_of_the_Heart.jpg",
+      "license": "CC BY 3.0 (OpenStax College)"
+    },
+    {
+      "id": "2007_Ventricular_Muscle_Thickness",
+      "file": "plates/2007_Ventricular_Muscle_Thickness.jpg",
+      "width": 2025,
+      "height": 1181,
+      "header": "",
+      "boxes": [
+        {
+          "x": 1766,
+          "y": 574,
+          "width": 346,
+          "height": 28,
+          "label": "Left ventricle"
+        },
+        {
+          "x": 1762,
+          "y": 742,
+          "width": 233,
+          "height": 36,
+          "label": "Right ventricle"
+        }
+      ],
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/2007_Ventricular_Muscle_Thickness.jpg",
+      "license": "CC BY 3.0 (OpenStax College)"
+    },
+    {
+      "id": "2008_Internal_Anatomy_of_the_HeartN",
+      "file": "plates/2008_Internal_Anatomy_of_the_HeartN.jpg",
+      "width": 1656,
+      "height": 1159,
+      "header": "",
+      "boxes": [
+        {
+          "x": 431,
+          "y": 52,
+          "width": 88,
+          "height": 28,
+          "label": "Aorta"
+        },
+        {
+          "x": 8,
+          "y": 137,
+          "width": 320,
+          "height": 35,
+          "label": "Superior vena cava"
+        },
+        {
+          "x": 1271,
+          "y": 228,
+          "width": 172,
+          "height": 28,
+          "label": "Left atrium"
+        },
+        {
+          "x": 9,
+          "y": 288,
+          "width": 270,
+          "height": 35,
+          "label": "Pulmonary trunk"
+        },
+        {
+          "x": 1271,
+          "y": 306,
+          "width": 342,
+          "height": 35,
+          "label": "Pulmonary veins"
+        },
+        {
+          "x": 7,
+          "y": 396,
+          "width": 270,
+          "height": 28,
+          "label": "Pulmonary veins"
+        },
+        {
+          "x": 1271,
+          "y": 411,
+          "width": 358,
+          "height": 35,
+          "label": "Mitral valve"
+        },
+        {
+          "x": 9,
+          "y": 469,
+          "width": 197,
+          "height": 36,
+          "label": "Right atrium"
+        },
+        {
+          "x": 1269,
+          "y": 504,
+          "width": 191,
+          "height": 28,
+          "label": "Aortic valve"
+        },
+        {
+          "x": 7,
+          "y": 586,
+          "width": 246,
+          "height": 35,
+          "label": "Tricuspid valve"
+        },
+        {
+          "x": 1271,
+          "y": 569,
+          "width": 273,
+          "height": 35,
+          "label": "Pulmonary valve"
+        },
+        {
+          "x": 9,
+          "y": 654,
+          "width": 233,
+          "height": 28,
+          "label": "Right ventricle"
+        },
+        {
+          "x": 1271,
+          "y": 638,
+          "width": 208,
+          "height": 29,
+          "label": "Left ventricle"
+        },
+        {
+          "x": 8,
+          "y": 719,
+          "width": 141,
+          "height": 28,
+          "label": "Chordae tendineae"
+        },
+        {
+          "x": 1271,
+          "y": 705,
+          "width": 376,
+          "height": 35,
+          "label": "Papillary muscle"
+        },
+        {
+          "x": 1272,
+          "y": 767,
+          "width": 375,
+          "height": 35,
+          "label": "Interventricular septum"
+        },
+        {
+          "x": 10,
+          "y": 938,
+          "width": 293,
+          "height": 28,
+          "label": "Inferior vena cava"
+        }
+      ],
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/9/92/2008_Internal_Anatomy_of_the_HeartN.jpg",
+      "license": "CC BY 3.0 (OpenStax College)"
+    },
+    {
+      "id": "2010_Chordae_Tendinae_Papillary_Muscles",
+      "file": "plates/2010_Chordae_Tendinae_Papillary_Muscles.jpg",
+      "width": 1606,
+      "height": 1112,
+      "header": "",
+      "boxes": [
+        {
+          "x": 1257,
+          "y": 345,
+          "width": 315,
+          "height": 28,
+          "label": "Chordae tendineae"
+        },
+        {
+          "x": 1258,
+          "y": 443,
+          "width": 287,
+          "height": 36,
+          "label": "Papillary muscle"
+        }
+      ],
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a7/2010_Chordae_Tendinae_Papillary_Muscles.jpg",
+      "license": "CC BY 3.0 (OpenStax College)"
+    },
+    {
+      "id": "2011_Heart_Valves",
+      "file": "plates/2011_Heart_Valves.jpg",
+      "width": 1525,
+      "height": 1217,
+      "header": "",
+      "boxes": [
+        {
+          "x": 164,
+          "y": 82,
+          "width": 242,
+          "height": 36,
+          "label": "Tricuspid valve"
+        },
+        {
+          "x": 1190,
+          "y": 82,
+          "width": 330,
+          "height": 36,
+          "label": "Mitral valve"
+        },
+        {
+          "x": 165,
+          "y": 996,
+          "width": 190,
+          "height": 28,
+          "label": "Aortic valve"
+        },
+        {
+          "x": 1190,
+          "y": 1008,
+          "width": 271,
+          "height": 36,
+          "label": "Pulmonary valve"
+        }
+      ],
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b9/2011_Heart_Valves.jpg",
+      "license": "CC BY 3.0 (OpenStax College)"
+    }
+  ]
+}
