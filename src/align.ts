@@ -23,33 +23,20 @@ function scoreMatch(ocr: string, term: string): number {
   return Math.round((hit / bt.length) * 80);
 }
 
-/** Map OCR boxes onto canonical required terms. Drops junk captions and geometrically impossible bars. */
+/** Map OCR boxes onto canonical required terms. Drops junk captions. Geometry lint is separate — do not silently drop wide bars here. */
 export function alignPlate(
   plate: OcrPlate,
   required: string[],
-  opts: { minScore?: number; minConf?: number; maxWidthFrac?: number; maxHeightFrac?: number } = {}
-): { boxes: ManifestBox[]; unmatchedOcr: string[]; matchedTerms: string[]; droppedWide: string[] } {
+  opts: { minScore?: number; minConf?: number } = {}
+): { boxes: ManifestBox[]; unmatchedOcr: string[]; matchedTerms: string[] } {
   const minScore = opts.minScore ?? 80;
   const minConf = opts.minConf ?? 45;
-  const maxWidthFrac = opts.maxWidthFrac ?? 0.28;
-  const maxHeightFrac = opts.maxHeightFrac ?? 0.12;
   const usedTerms = new Set<string>();
   const boxes: ManifestBox[] = [];
   const unmatchedOcr: string[] = [];
-  const droppedWide: string[] = [];
-  const pw = plate.width ?? 0;
-  const ph = plate.height ?? 0;
 
   for (const box of plate.boxes) {
     if ((box.conf ?? 100) < minConf) continue;
-    if (pw > 0 && box.width / pw > maxWidthFrac) {
-      droppedWide.push(box.label);
-      continue;
-    }
-    if (ph > 0 && box.height / ph > maxHeightFrac) {
-      droppedWide.push(box.label);
-      continue;
-    }
     let best: { term: string; score: number } | null = null;
     for (const term of required) {
       const score = scoreMatch(box.label, term);
@@ -69,7 +56,7 @@ export function alignPlate(
     });
   }
 
-  return { boxes, unmatchedOcr, matchedTerms: [...usedTerms], droppedWide };
+  return { boxes, unmatchedOcr, matchedTerms: [...usedTerms] };
 }
 
 export function manifestFromOcr(input: {
@@ -98,7 +85,6 @@ export function manifestFromOcr(input: {
       boxes: aligned.boxes.length,
       matchedTerms: aligned.matchedTerms,
       unmatchedOcrSample: aligned.unmatchedOcr.slice(0, 12),
-      droppedWideSample: aligned.droppedWide.slice(0, 12),
     });
   }
   return {

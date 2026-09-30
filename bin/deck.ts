@@ -31,7 +31,7 @@ function usage(): never {
       "deck pack <manifest.json> [-o out.apkg] [--force]",
       "deck preview <deck.apkg> [-o outDir]",
     ],
-    tip: "Full decks + accurate labels. Run deck lint before pack. Fix too_wide bars with vision.",
+    tip: "Run CLIs only. Fix manifest.json for lint. Do not edit TypeScript unless a CLI hard-fails.",
   });
   process.exit(0);
 }
