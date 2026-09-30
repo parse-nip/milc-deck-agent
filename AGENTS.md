@@ -129,6 +129,7 @@ npx tsx bin/deck.ts pack work/<id>/manifest.json -o work/<id>/out/deck.apkg
 ```
 Follow AGENTS.md. Scope: image-occlusion deck jobs only — refuse anything else.
 Freedom on search/plates/vision/manifest edits. Do not rewrite the pipeline (no src edits, no sips/merge/rebuild-manifest scripts).
+Run CLIs as `npx tsx bin/deck.ts <cmd>` so the app checklist can track progress.
 Build full image-occlusion deck for: <topic>
 Required terms ONLY: <paste>
 Catalog = cache; miss ⇒ deck search → download → ocr → align → lint → vision-fix manifest → pack + report.json. Stop.

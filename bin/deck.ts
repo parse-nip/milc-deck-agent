@@ -10,6 +10,12 @@ import { manifestFromOcr, readJson, writeJson, type OcrPlate } from "../src/alig
 import { downloadCatalogPlates, imageSize, resizeLongEdge } from "../src/download.js";
 import { buildApkgPreview } from "../src/preview-apkg.js";
 import { lintManifest, stripBadBoxes } from "../src/lint.js";
+import {
+  applyStreamPayload,
+  createDeckBuildProgress,
+  progressSchema,
+  type DeckBuildProgress,
+} from "../src/progress.js";
 
 function print(data: unknown) {
   process.stdout.write(`${JSON.stringify(data, null, 2)}\n`);
@@ -30,6 +36,7 @@ function usage(): never {
       "deck lint <manifest.json> [--fix]",
       "deck pack <manifest.json> [-o out.apkg] [--force]",
       "deck preview <deck.apkg> [-o outDir]",
+      "deck progress [--schema] [--apply event.json]",
     ],
     tip: "Run CLIs only. Fix manifest.json for lint. Do not edit TypeScript unless a CLI hard-fails.",
   });
@@ -269,6 +276,30 @@ async function main() {
     const resolved = resolve(apkg);
     const outDir = resolve(out ?? join(dirname(resolved), "preview"));
     print(await buildApkgPreview(resolved, outDir));
+    return;
+  }
+
+  if (cmd === "progress") {
+    const args = [...rest];
+    const wantSchema = args.includes("--schema");
+    if (wantSchema) {
+      print(progressSchema());
+      return;
+    }
+    const applyPath = takeFlag(args, "--apply");
+    let state: DeckBuildProgress = createDeckBuildProgress();
+    if (applyPath) {
+      const payload = readJson<unknown>(resolve(applyPath));
+      // Accept one event or { events: [...] } or a raw SSE JSON array
+      if (Array.isArray(payload)) {
+        for (const ev of payload) state = applyStreamPayload(state, ev);
+      } else if (payload && typeof payload === "object" && Array.isArray((payload as { events?: unknown }).events)) {
+        for (const ev of (payload as { events: unknown[] }).events) state = applyStreamPayload(state, ev);
+      } else {
+        state = applyStreamPayload(state, payload);
+      }
+    }
+    print(state);
     return;
   }
 
