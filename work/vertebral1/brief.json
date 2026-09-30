@@ -1,0 +1,8 @@
+{
+  "topic": "vertebral_column",
+  "deckName": "Axial Skeleton (Vertebral Column)",
+  "desc": "Image occlusion for the vertebral column: regional curvatures, typical vertebra landmarks, cervical/thoracic/lumbar vertebrae, sacrum and coccyx, and intervertebral discs. Plates: OpenStax Anatomy & Physiology (CC BY 3.0) via Wikimedia Commons.",
+  "requiredTermsFile": "terms.txt",
+  "maxPlates": 12,
+  "notes": "Full vertebral column deck. Labels must match printed OpenStax terms (canonical names from terms.txt)."
+}

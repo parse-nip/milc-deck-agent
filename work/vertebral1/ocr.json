@@ -1,0 +1,1818 @@
+[
+  {
+    "file": "/workspace/work/vertebral1/plates/715_Vertebral_Column.jpg",
+    "boxes": [
+      {
+        "x": 730,
+        "y": 75,
+        "width": 17,
+        "height": 9,
+        "label": "2)",
+        "conf": 40
+      },
+      {
+        "x": 719,
+        "y": 85,
+        "width": 22,
+        "height": 10,
+        "label": "Be",
+        "conf": 41
+      },
+      {
+        "x": 434,
+        "y": 93,
+        "width": 135,
+        "height": 12,
+        "label": "Cervical vertebrae",
+        "conf": 96
+      },
+      {
+        "x": 391,
+        "y": 113,
+        "width": 161,
+        "height": 16,
+        "label": "(C1-C7) form cervical",
+        "conf": 81
+      },
+      {
+        "x": 220,
+        "y": 114,
+        "width": 520,
+        "height": 18,
+        "label": "RE curve — ge",
+        "conf": 61
+      },
+      {
+        "x": 219,
+        "y": 169,
+        "width": 36,
+        "height": 13,
+        "label": "ap",
+        "conf": 43
+      },
+      {
+        "x": 231,
+        "y": 180,
+        "width": 22,
+        "height": 14,
+        "label": "Ep",
+        "conf": 41
+      },
+      {
+        "x": 680,
+        "y": 180,
+        "width": 30,
+        "height": 16,
+        "label": "BO",
+        "conf": 48
+      },
+      {
+        "x": 441,
+        "y": 193,
+        "width": 129,
+        "height": 13,
+        "label": "Thoracic vertbrae",
+        "conf": 89
+      },
+      {
+        "x": 388,
+        "y": 213,
+        "width": 213,
+        "height": 16,
+        "label": "(11-712) form thoracic curve",
+        "conf": 81
+      },
+      {
+        "x": 222,
+        "y": 270,
+        "width": 25,
+        "height": 12,
+        "label": "Gi",
+        "conf": 46
+      },
+      {
+        "x": 274,
+        "y": 271,
+        "width": 6,
+        "height": 2,
+        "label": "|",
+        "conf": 62
+      },
+      {
+        "x": 1,
+        "y": 280,
+        "width": 97,
+        "height": 12,
+        "label": "Intervertebral.",
+        "conf": 75
+      },
+      {
+        "x": 0,
+        "y": 300,
+        "width": 29,
+        "height": 12,
+        "label": "disc",
+        "conf": 96
+      },
+      {
+        "x": 221,
+        "y": 304,
+        "width": 376,
+        "height": 18,
+        "label": "Lumbar vertebrae (L1-L5) LP",
+        "conf": 81
+      },
+      {
+        "x": 427,
+        "y": 321,
+        "width": 313,
+        "height": 25,
+        "label": "| form lumbar curve",
+        "conf": 83
+      },
+      {
+        "x": 1,
+        "y": 371,
+        "width": 56,
+        "height": 13,
+        "label": "Sacrum:",
+        "conf": 87
+      },
+      {
+        "x": 156,
+        "y": 376,
+        "width": 17,
+        "height": 47,
+        "label": "|",
+        "conf": 52
+      },
+      {
+        "x": 394,
+        "y": 382,
+        "width": 197,
+        "height": 13,
+        "label": "Fused vertebrae of sacrum",
+        "conf": 97
+      },
+      {
+        "x": 434,
+        "y": 402,
+        "width": 27,
+        "height": 13,
+        "label": "and",
+        "conf": 80
+      },
+      {
+        "x": 1,
+        "y": 402,
+        "width": 553,
+        "height": 18,
+        "label": "form Coccyx",
+        "conf": 66
+      },
+      {
+        "x": 466,
+        "y": 405,
+        "width": 51,
+        "height": 13,
+        "label": "coccyx",
+        "conf": 91
+      },
+      {
+        "x": 412,
+        "y": 422,
+        "width": 160,
+        "height": 16,
+        "label": "sacrococcygeal curve",
+        "conf": 91
+      }
+    ]
+  },
+  {
+    "file": "/workspace/work/vertebral1/plates/716_Intervertebral_Disk.jpg",
+    "boxes": [
+      {
+        "x": 433,
+        "y": 101,
+        "width": 338,
+        "height": 69,
+        "label": "\\ Vertebral body",
+        "conf": 94
+      },
+      {
+        "x": 434,
+        "y": 154,
+        "width": 202,
+        "height": 16,
+        "label": "Intervertebral foramen",
+        "conf": 96
+      },
+      {
+        "x": 10,
+        "y": 203,
+        "width": 586,
+        "height": 226,
+        "label": "fibrosus Anulus a Nucleus pulposus",
+        "conf": 86
+      },
+      {
+        "x": 146,
+        "y": 451,
+        "width": 110,
+        "height": 16,
+        "label": "Lateral view",
+        "conf": 94
+      },
+      {
+        "x": 766,
+        "y": 451,
+        "width": 125,
+        "height": 20,
+        "label": "Superior view",
+        "conf": 96
+      }
+    ]
+  },
+  {
+    "file": "/workspace/work/vertebral1/plates/718_Vertebra.jpg",
+    "boxes": [
+      {
+        "x": 601,
+        "y": 3,
+        "width": 73,
+        "height": 15,
+        "label": "Anterior",
+        "conf": 97
+      },
+      {
+        "x": 867,
+        "y": 3,
+        "width": 81,
+        "height": 15,
+        "label": "Posterior",
+        "conf": 97
+      },
+      {
+        "x": 194,
+        "y": 34,
+        "width": 81,
+        "height": 15,
+        "label": "Posterior",
+        "conf": 97
+      },
+      {
+        "x": 1,
+        "y": 49,
+        "width": 102,
+        "height": 20,
+        "label": "Spinal cord",
+        "conf": 97
+      },
+      {
+        "x": 938,
+        "y": 52,
+        "width": 102,
+        "height": 19,
+        "label": "Spinal cord",
+        "conf": 97
+      },
+      {
+        "x": 282,
+        "y": 79,
+        "width": 73,
+        "height": 19,
+        "label": "Spinous",
+        "conf": 84
+      },
+      {
+        "x": 459,
+        "y": 84,
+        "width": 100,
+        "height": 16,
+        "label": "Transverse",
+        "conf": 96
+      },
+      {
+        "x": 938,
+        "y": 90,
+        "width": 73,
+        "height": 16,
+        "label": "of Facet",
+        "conf": 97
+      },
+      {
+        "x": 1,
+        "y": 91,
+        "width": 1091,
+        "height": 19,
+        "label": "superior Vertebral",
+        "conf": 96
+      },
+      {
+        "x": 282,
+        "y": 108,
+        "width": 71,
+        "height": 15,
+        "label": "process",
+        "conf": 96
+      },
+      {
+        "x": 460,
+        "y": 113,
+        "width": 71,
+        "height": 16,
+        "label": "process",
+        "conf": 96
+      },
+      {
+        "x": 0,
+        "y": 116,
+        "width": 1012,
+        "height": 17,
+        "label": "articular foramen",
+        "conf": 97
+      },
+      {
+        "x": 1019,
+        "y": 119,
+        "width": 71,
+        "height": 16,
+        "label": "process",
+        "conf": 97
+      },
+      {
+        "x": 461,
+        "y": 147,
+        "width": 156,
+        "height": 16,
+        "label": "Intervetebral disc",
+        "conf": 93
+      },
+      {
+        "x": 938,
+        "y": 178,
+        "width": 130,
+        "height": 16,
+        "label": "Facet for head",
+        "conf": 96
+      },
+      {
+        "x": 2,
+        "y": 190,
+        "width": 72,
+        "height": 16,
+        "label": "Facet of",
+        "conf": 97
+      },
+      {
+        "x": 460,
+        "y": 190,
+        "width": 133,
+        "height": 15,
+        "label": "Vertebral arch:",
+        "conf": 97
+      },
+      {
+        "x": 1,
+        "y": 203,
+        "width": 982,
+        "height": 32,
+        "label": "of rib superior",
+        "conf": 94
+      },
+      {
+        "x": 472,
+        "y": 215,
+        "width": 67,
+        "height": 15,
+        "label": "Lamina",
+        "conf": 97
+      },
+      {
+        "x": 1,
+        "y": 240,
+        "width": 74,
+        "height": 16,
+        "label": "articular",
+        "conf": 97
+      },
+      {
+        "x": 472,
+        "y": 244,
+        "width": 65,
+        "height": 16,
+        "label": "Pedicle",
+        "conf": 97
+      },
+      {
+        "x": 1,
+        "y": 269,
+        "width": 71,
+        "height": 16,
+        "label": "process",
+        "conf": 97
+      },
+      {
+        "x": 460,
+        "y": 280,
+        "width": 46,
+        "height": 20,
+        "label": "Body",
+        "conf": 97
+      },
+      {
+        "x": 2,
+        "y": 302,
+        "width": 1080,
+        "height": 20,
+        "label": "Inferior articular Facet for",
+        "conf": 97
+      },
+      {
+        "x": 460,
+        "y": 320,
+        "width": 56,
+        "height": 19,
+        "label": "Spinal",
+        "conf": 97
+      },
+      {
+        "x": 524,
+        "y": 320,
+        "width": 115,
+        "height": 20,
+        "label": "exiting nerve",
+        "conf": 96
+      },
+      {
+        "x": 1,
+        "y": 331,
+        "width": 1008,
+        "height": 16,
+        "label": "process head of rib",
+        "conf": 96
+      },
+      {
+        "x": 197,
+        "y": 340,
+        "width": 73,
+        "height": 16,
+        "label": "Anterior",
+        "conf": 97
+      },
+      {
+        "x": 459,
+        "y": 345,
+        "width": 198,
+        "height": 20,
+        "label": "through intervertebral",
+        "conf": 96
+      },
+      {
+        "x": 459,
+        "y": 362,
+        "width": 631,
+        "height": 23,
+        "label": "Spinous process foramen",
+        "conf": 95
+      },
+      {
+        "x": 172,
+        "y": 430,
+        "width": 124,
+        "height": 19,
+        "label": "Superior view",
+        "conf": 97
+      },
+      {
+        "x": 691,
+        "y": 430,
+        "width": 212,
+        "height": 19,
+        "label": "Left posterolateral view",
+        "conf": 97
+      },
+      {
+        "x": 690,
+        "y": 455,
+        "width": 213,
+        "height": 15,
+        "label": "of articulated vertebrae",
+        "conf": 97
+      }
+    ]
+  },
+  {
+    "file": "/workspace/work/vertebral1/plates/719_Thoracic_Vertebra.jpg",
+    "boxes": [
+      {
+        "x": 153,
+        "y": 3,
+        "width": 159,
+        "height": 19,
+        "label": "Superior articular",
+        "conf": 97
+      },
+      {
+        "x": 317,
+        "y": 3,
+        "width": 487,
+        "height": 46,
+        "label": "Articular facet —_S,",
+        "conf": 81
+      },
+      {
+        "x": 153,
+        "y": 28,
+        "width": 679,
+        "height": 19,
+        "label": "for tubercle of rib process",
+        "conf": 96
+      },
+      {
+        "x": 340,
+        "y": 41,
+        "width": 96,
+        "height": 53,
+        "label": "(Gs",
+        "conf": 56
+      },
+      {
+        "x": 507,
+        "y": 44,
+        "width": 60,
+        "height": 37,
+        "label": "NO",
+        "conf": 43
+      },
+      {
+        "x": 152,
+        "y": 68,
+        "width": 422,
+        "height": 31,
+        "label": "f Transverse",
+        "conf": 75
+      },
+      {
+        "x": 345,
+        "y": 80,
+        "width": 149,
+        "height": 39,
+        "label": "i S",
+        "conf": 68
+      },
+      {
+        "x": 597,
+        "y": 89,
+        "width": 4,
+        "height": 10,
+        "label": "i",
+        "conf": 77
+      },
+      {
+        "x": 153,
+        "y": 94,
+        "width": 617,
+        "height": 25,
+        "label": "Pedicle Oy process",
+        "conf": 86
+      },
+      {
+        "x": 505,
+        "y": 124,
+        "width": 14,
+        "height": 7,
+        "label": "ne",
+        "conf": 73
+      },
+      {
+        "x": 706,
+        "y": 164,
+        "width": 120,
+        "height": 15,
+        "label": "Intervertebral",
+        "conf": 97
+      },
+      {
+        "x": 215,
+        "y": 187,
+        "width": 66,
+        "height": 16,
+        "label": "Lamina",
+        "conf": 96
+      },
+      {
+        "x": 454,
+        "y": 189,
+        "width": 286,
+        "height": 43,
+        "label": "disc C aa",
+        "conf": 69
+      },
+      {
+        "x": 541,
+        "y": 217,
+        "width": 26,
+        "height": 15,
+        "label": "LY",
+        "conf": 66
+      },
+      {
+        "x": 18,
+        "y": 242,
+        "width": 52,
+        "height": 21,
+        "label": "oS",
+        "conf": 53
+      },
+      {
+        "x": 28,
+        "y": 245,
+        "width": 723,
+        "height": 89,
+        "label": "Body Z ok",
+        "conf": 64
+      },
+      {
+        "x": 153,
+        "y": 306,
+        "width": 73,
+        "height": 20,
+        "label": "Spinous",
+        "conf": 93
+      },
+      {
+        "x": 153,
+        "y": 308,
+        "width": 338,
+        "height": 82,
+        "label": "g aay process",
+        "conf": 66
+      },
+      {
+        "x": 448,
+        "y": 340,
+        "width": 30,
+        "height": 17,
+        "label": "TE",
+        "conf": 48
+      },
+      {
+        "x": 535,
+        "y": 343,
+        "width": 69,
+        "height": 32,
+        "label": "D «",
+        "conf": 77
+      },
+      {
+        "x": 705,
+        "y": 347,
+        "width": 137,
+        "height": 20,
+        "label": "Superior costal",
+        "conf": 96
+      },
+      {
+        "x": 434,
+        "y": 360,
+        "width": 73,
+        "height": 53,
+        "label": "Va ii",
+        "conf": 55
+      },
+      {
+        "x": 340,
+        "y": 372,
+        "width": 408,
+        "height": 73,
+        "label": "facet ly",
+        "conf": 78
+      },
+      {
+        "x": 386,
+        "y": 504,
+        "width": 11,
+        "height": 22,
+        "label": "Yi",
+        "conf": 51
+      },
+      {
+        "x": 426,
+        "y": 533,
+        "width": 250,
+        "height": 18,
+        "label": "Inferior costal Inferior",
+        "conf": 96
+      },
+      {
+        "x": 425,
+        "y": 558,
+        "width": 172,
+        "height": 18,
+        "label": "facet articular",
+        "conf": 97
+      },
+      {
+        "x": 425,
+        "y": 589,
+        "width": 71,
+        "height": 16,
+        "label": "process",
+        "conf": 96
+      }
+    ]
+  },
+  {
+    "file": "/workspace/work/vertebral1/plates/720_Sacrum_and_Coccyx.jpg",
+    "boxes": [
+      {
+        "x": 745,
+        "y": 3,
+        "width": 56,
+        "height": 15,
+        "label": "Sacral",
+        "conf": 96
+      },
+      {
+        "x": 869,
+        "y": 3,
+        "width": 46,
+        "height": 20,
+        "label": "Body",
+        "conf": 97
+      },
+      {
+        "x": 1032,
+        "y": 3,
+        "width": 154,
+        "height": 19,
+        "label": "Facet of superior",
+        "conf": 97
+      },
+      {
+        "x": 127,
+        "y": 23,
+        "width": 169,
+        "height": 20,
+        "label": "Sacral promontory",
+        "conf": 97
+      },
+      {
+        "x": 744,
+        "y": 28,
+        "width": 48,
+        "height": 15,
+        "label": "canal",
+        "conf": 96
+      },
+      {
+        "x": 1031,
+        "y": 28,
+        "width": 153,
+        "height": 19,
+        "label": "articular process",
+        "conf": 96
+      },
+      {
+        "x": 390,
+        "y": 88,
+        "width": 76,
+        "height": 17,
+        "label": "Tae",
+        "conf": 41
+      },
+      {
+        "x": 750,
+        "y": 95,
+        "width": 337,
+        "height": 52,
+        "label": "fi hy",
+        "conf": 43
+      },
+      {
+        "x": 119,
+        "y": 103,
+        "width": 771,
+        "height": 32,
+        "label": "Nv AN Body of first",
+        "conf": 86
+      },
+      {
+        "x": 118,
+        "y": 122,
+        "width": 1059,
+        "height": 37,
+        "label": "Auricular Z hy aN NN sacral vertebra",
+        "conf": 78
+      },
+      {
+        "x": 589,
+        "y": 148,
+        "width": 8,
+        "height": 23,
+        "label": ")",
+        "conf": 46
+      },
+      {
+        "x": 15,
+        "y": 150,
+        "width": 1147,
+        "height": 41,
+        "label": "surface l My xe",
+        "conf": 67
+      },
+      {
+        "x": 19,
+        "y": 186,
+        "width": 29,
+        "height": 17,
+        "label": "BY",
+        "conf": 44
+      },
+      {
+        "x": 5,
+        "y": 186,
+        "width": 778,
+        "height": 33,
+        "label": "i LA View|",
+        "conf": 59
+      },
+      {
+        "x": 118,
+        "y": 203,
+        "width": 669,
+        "height": 24,
+        "label": "iJ Transverse ridges",
+        "conf": 79
+      },
+      {
+        "x": 11,
+        "y": 208,
+        "width": 1147,
+        "height": 22,
+        "label": "Lateral |",
+        "conf": 72
+      },
+      {
+        "x": 750,
+        "y": 214,
+        "width": 251,
+        "height": 19,
+        "label": "\\\\ i",
+        "conf": 50
+      },
+      {
+        "x": 1,
+        "y": 220,
+        "width": 857,
+        "height": 30,
+        "label": "_ Median we",
+        "conf": 66
+      },
+      {
+        "x": 119,
+        "y": 232,
+        "width": 157,
+        "height": 19,
+        "label": "(sites of vertebral",
+        "conf": 97
+      },
+      {
+        "x": 1096,
+        "y": 233,
+        "width": 54,
+        "height": 15,
+        "label": "sacral",
+        "conf": 96
+      },
+      {
+        "x": 118,
+        "y": 245,
+        "width": 769,
+        "height": 31,
+        "label": "AN sacral fusion)",
+        "conf": 87
+      },
+      {
+        "x": 983,
+        "y": 259,
+        "width": 17,
+        "height": 19,
+        "label": "Ly)",
+        "conf": 52
+      },
+      {
+        "x": 1096,
+        "y": 259,
+        "width": 44,
+        "height": 14,
+        "label": "crest",
+        "conf": 95
+      },
+      {
+        "x": 642,
+        "y": 273,
+        "width": 44,
+        "height": 14,
+        "label": "crest",
+        "conf": 96
+      },
+      {
+        "x": 401,
+        "y": 276,
+        "width": 505,
+        "height": 33,
+        "label": "vd SS",
+        "conf": 54
+      },
+      {
+        "x": 139,
+        "y": 312,
+        "width": 340,
+        "height": 31,
+        "label": "I NZ Anterior sacral",
+        "conf": 74
+      },
+      {
+        "x": 643,
+        "y": 328,
+        "width": 81,
+        "height": 15,
+        "label": "Posterior",
+        "conf": 97
+      },
+      {
+        "x": 28,
+        "y": 340,
+        "width": 48,
+        "height": 15,
+        "label": "on",
+        "conf": 41
+      },
+      {
+        "x": 791,
+        "y": 340,
+        "width": 34,
+        "height": 24,
+        "label": "eS",
+        "conf": 69
+      },
+      {
+        "x": 138,
+        "y": 348,
+        "width": 1011,
+        "height": 20,
+        "label": "Sacral hiatus foramina",
+        "conf": 97
+      },
+      {
+        "x": 642,
+        "y": 353,
+        "width": 54,
+        "height": 15,
+        "label": "sacral",
+        "conf": 93
+      },
+      {
+        "x": 456,
+        "y": 370,
+        "width": 33,
+        "height": 19,
+        "label": "fr",
+        "conf": 48
+      },
+      {
+        "x": 259,
+        "y": 378,
+        "width": 462,
+        "height": 31,
+        "label": "foramina Apex",
+        "conf": 97
+      },
+      {
+        "x": 994,
+        "y": 432,
+        "width": 67,
+        "height": 20,
+        "label": "Coccyx",
+        "conf": 97
+      },
+      {
+        "x": 23,
+        "y": 458,
+        "width": 9,
+        "height": 14,
+        "label": "\\",
+        "conf": 64
+      },
+      {
+        "x": 381,
+        "y": 510,
+        "width": 119,
+        "height": 15,
+        "label": "Anterior view",
+        "conf": 96
+      },
+      {
+        "x": 818,
+        "y": 510,
+        "width": 128,
+        "height": 15,
+        "label": "Posterior view",
+        "conf": 94
+      }
+    ]
+  },
+  {
+    "file": "/workspace/work/vertebral1/plates/723_Cervical_Vertebrae.jpg",
+    "boxes": [
+      {
+        "x": 814,
+        "y": 21,
+        "width": 102,
+        "height": 14,
+        "label": "Dens of axis",
+        "conf": 95
+      },
+      {
+        "x": 695,
+        "y": 51,
+        "width": 90,
+        "height": 14,
+        "label": "Transverse",
+        "conf": 90
+      },
+      {
+        "x": 696,
+        "y": 73,
+        "width": 70,
+        "height": 18,
+        "label": "ligament",
+        "conf": 97
+      },
+      {
+        "x": 15,
+        "y": 94,
+        "width": 36,
+        "height": 13,
+        "label": "Pak",
+        "conf": 57
+      },
+      {
+        "x": 331,
+        "y": 96,
+        "width": 67,
+        "height": 18,
+        "label": "Spinous",
+        "conf": 91
+      },
+      {
+        "x": 404,
+        "y": 96,
+        "width": 116,
+        "height": 18,
+        "label": "(bifid) process",
+        "conf": 96
+      },
+      {
+        "x": 9,
+        "y": 122,
+        "width": 20,
+        "height": 8,
+        "label": "ZX",
+        "conf": 44
+      },
+      {
+        "x": 190,
+        "y": 131,
+        "width": 583,
+        "height": 24,
+        "label": "(atlas) Vertebral foramen",
+        "conf": 97
+      },
+      {
+        "x": 696,
+        "y": 163,
+        "width": 70,
+        "height": 18,
+        "label": "Cz (axis)",
+        "conf": 74
+      },
+      {
+        "x": 18,
+        "y": 183,
+        "width": 442,
+        "height": 9,
+        "label": "y |",
+        "conf": 55
+      },
+      {
+        "x": 265,
+        "y": 184,
+        "width": 667,
+        "height": 25,
+        "label": "N Lamina",
+        "conf": 60
+      },
+      {
+        "x": 494,
+        "y": 195,
+        "width": 59,
+        "height": 14,
+        "label": "Pedicle",
+        "conf": 97
+      },
+      {
+        "x": 696,
+        "y": 196,
+        "width": 20,
+        "height": 18,
+        "label": "Cg",
+        "conf": 62
+      },
+      {
+        "x": 864,
+        "y": 196,
+        "width": 170,
+        "height": 57,
+        "label": "Inferior =e",
+        "conf": 74
+      },
+      {
+        "x": 977,
+        "y": 218,
+        "width": 67,
+        "height": 14,
+        "label": "articular",
+        "conf": 96
+      },
+      {
+        "x": 191,
+        "y": 240,
+        "width": 70,
+        "height": 18,
+        "label": "Superior",
+        "conf": 97
+      },
+      {
+        "x": 977,
+        "y": 244,
+        "width": 64,
+        "height": 15,
+        "label": "process",
+        "conf": 93
+      },
+      {
+        "x": 28,
+        "y": 262,
+        "width": 229,
+        "height": 21,
+        "label": "articular ou",
+        "conf": 75
+      },
+      {
+        "x": 28,
+        "y": 283,
+        "width": 1054,
+        "height": 18,
+        "label": "Bifid spinous (as",
+        "conf": 84
+      },
+      {
+        "x": 191,
+        "y": 288,
+        "width": 64,
+        "height": 15,
+        "label": "process",
+        "conf": 90
+      },
+      {
+        "x": 190,
+        "y": 310,
+        "width": 851,
+        "height": 61,
+        "label": "process P| |J Transverse",
+        "conf": 77
+      },
+      {
+        "x": 329,
+        "y": 344,
+        "width": 8,
+        "height": 8,
+        "label": "Y",
+        "conf": 46
+      },
+      {
+        "x": 976,
+        "y": 349,
+        "width": 91,
+        "height": 14,
+        "label": "‘Transverse",
+        "conf": 76
+      },
+      {
+        "x": 191,
+        "y": 363,
+        "width": 64,
+        "height": 14,
+        "label": "process",
+        "conf": 94
+      },
+      {
+        "x": 977,
+        "y": 375,
+        "width": 64,
+        "height": 15,
+        "label": "process",
+        "conf": 94
+      },
+      {
+        "x": 190,
+        "y": 404,
+        "width": 90,
+        "height": 14,
+        "label": "Transverse",
+        "conf": 97
+      },
+      {
+        "x": 696,
+        "y": 404,
+        "width": 100,
+        "height": 18,
+        "label": "C; (vertebra",
+        "conf": 91
+      },
+      {
+        "x": 190,
+        "y": 426,
+        "width": 67,
+        "height": 15,
+        "label": "foramen",
+        "conf": 96
+      },
+      {
+        "x": 407,
+        "y": 426,
+        "width": 135,
+        "height": 19,
+        "label": "Groove Body",
+        "conf": 97
+      },
+      {
+        "x": 696,
+        "y": 427,
+        "width": 92,
+        "height": 18,
+        "label": "prominens)",
+        "conf": 90
+      },
+      {
+        "x": 482,
+        "y": 449,
+        "width": 74,
+        "height": 18,
+        "label": "for spinal",
+        "conf": 97
+      },
+      {
+        "x": 483,
+        "y": 475,
+        "width": 45,
+        "height": 11,
+        "label": "nerve",
+        "conf": 96
+      },
+      {
+        "x": 271,
+        "y": 509,
+        "width": 96,
+        "height": 15,
+        "label": "Structure of",
+        "conf": 97
+      },
+      {
+        "x": 373,
+        "y": 510,
+        "width": 212,
+        "height": 18,
+        "label": "typical cervical vertebra a",
+        "conf": 94
+      },
+      {
+        "x": 844,
+        "y": 561,
+        "width": 42,
+        "height": 14,
+        "label": "Dens",
+        "conf": 97
+      },
+      {
+        "x": 648,
+        "y": 589,
+        "width": 143,
+        "height": 18,
+        "label": "Superior articular,",
+        "conf": 96
+      },
+      {
+        "x": 943,
+        "y": 590,
+        "width": 91,
+        "height": 14,
+        "label": "Transverse",
+        "conf": 79
+      },
+      {
+        "x": 647,
+        "y": 612,
+        "width": 40,
+        "height": 14,
+        "label": "facet",
+        "conf": 97
+      },
+      {
+        "x": 944,
+        "y": 616,
+        "width": 64,
+        "height": 14,
+        "label": "process",
+        "conf": 95
+      },
+      {
+        "x": 257,
+        "y": 635,
+        "width": 42,
+        "height": 14,
+        "label": "Dens",
+        "conf": 97
+      },
+      {
+        "x": 397,
+        "y": 655,
+        "width": 106,
+        "height": 14,
+        "label": "Anterior arch",
+        "conf": 96
+      },
+      {
+        "x": 647,
+        "y": 656,
+        "width": 90,
+        "height": 14,
+        "label": "Transverse",
+        "conf": 97
+      },
+      {
+        "x": 44,
+        "y": 668,
+        "width": 143,
+        "height": 18,
+        "label": "Superior articular",
+        "conf": 96
+      },
+      {
+        "x": 647,
+        "y": 678,
+        "width": 67,
+        "height": 15,
+        "label": "foramen",
+        "conf": 96
+      },
+      {
+        "x": 43,
+        "y": 690,
+        "width": 40,
+        "height": 14,
+        "label": "facet",
+        "conf": 97
+      },
+      {
+        "x": 465,
+        "y": 735,
+        "width": 90,
+        "height": 14,
+        "label": "Transverse",
+        "conf": 96
+      },
+      {
+        "x": 648,
+        "y": 747,
+        "width": 60,
+        "height": 14,
+        "label": "Lamina",
+        "conf": 97
+      },
+      {
+        "x": 466,
+        "y": 761,
+        "width": 64,
+        "height": 14,
+        "label": "process",
+        "conf": 93
+      },
+      {
+        "x": 43,
+        "y": 770,
+        "width": 91,
+        "height": 14,
+        "label": "Transverse",
+        "conf": 95
+      },
+      {
+        "x": 43,
+        "y": 792,
+        "width": 67,
+        "height": 15,
+        "label": "foramen",
+        "conf": 97
+      },
+      {
+        "x": 123,
+        "y": 819,
+        "width": 662,
+        "height": 26,
+        "label": "Spinous process Ligament",
+        "conf": 93
+      },
+      {
+        "x": 352,
+        "y": 827,
+        "width": 114,
+        "height": 14,
+        "label": "Posterior arch",
+        "conf": 95
+      },
+      {
+        "x": 188,
+        "y": 867,
+        "width": 70,
+        "height": 18,
+        "label": "Superior",
+        "conf": 96
+      },
+      {
+        "x": 306,
+        "y": 867,
+        "width": 15,
+        "height": 15,
+        "label": "of",
+        "conf": 97
+      },
+      {
+        "x": 772,
+        "y": 867,
+        "width": 70,
+        "height": 18,
+        "label": "Superior",
+        "conf": 97
+      },
+      {
+        "x": 263,
+        "y": 867,
+        "width": 642,
+        "height": 15,
+        "label": "of view",
+        "conf": 97
+      },
+      {
+        "x": 327,
+        "y": 868,
+        "width": 38,
+        "height": 14,
+        "label": "atlas",
+        "conf": 97
+      },
+      {
+        "x": 848,
+        "y": 868,
+        "width": 36,
+        "height": 14,
+        "label": "view",
+        "conf": 97
+      },
+      {
+        "x": 911,
+        "y": 868,
+        "width": 32,
+        "height": 14,
+        "label": "axis",
+        "conf": 97
+      },
+      {
+        "x": 849,
+        "y": 917,
+        "width": 42,
+        "height": 14,
+        "label": "Dens",
+        "conf": 97
+      },
+      {
+        "x": 649,
+        "y": 1106,
+        "width": 90,
+        "height": 14,
+        "label": "Transverse",
+        "conf": 97
+      },
+      {
+        "x": 649,
+        "y": 1132,
+        "width": 65,
+        "height": 14,
+        "label": "process",
+        "conf": 97
+      },
+      {
+        "x": 650,
+        "y": 1163,
+        "width": 129,
+        "height": 14,
+        "label": "Inferior articular",
+        "conf": 96
+      },
+      {
+        "x": 850,
+        "y": 1167,
+        "width": 41,
+        "height": 18,
+        "label": "Body",
+        "conf": 97
+      },
+      {
+        "x": 649,
+        "y": 1189,
+        "width": 65,
+        "height": 14,
+        "label": "process",
+        "conf": 97
+      },
+      {
+        "x": 781,
+        "y": 1222,
+        "width": 167,
+        "height": 14,
+        "label": "Anterior view of axis",
+        "conf": 96
+      }
+    ]
+  },
+  {
+    "file": "/workspace/work/vertebral1/plates/725_Lumbar_Vertebrae.jpg",
+    "boxes": [
+      {
+        "x": 305,
+        "y": 3,
+        "width": 159,
+        "height": 19,
+        "label": "Superior articular",
+        "conf": 96
+      },
+      {
+        "x": 305,
+        "y": 32,
+        "width": 71,
+        "height": 15,
+        "label": "process",
+        "conf": 96
+      },
+      {
+        "x": 53,
+        "y": 76,
+        "width": 167,
+        "height": 36,
+        "label": "Transverse B Br",
+        "conf": 81
+      },
+      {
+        "x": 121,
+        "y": 104,
+        "width": 71,
+        "height": 16,
+        "label": "process",
+        "conf": 96
+      },
+      {
+        "x": 336,
+        "y": 120,
+        "width": 27,
+        "height": 16,
+        "label": "(a",
+        "conf": 40
+      },
+      {
+        "x": 322,
+        "y": 143,
+        "width": 172,
+        "height": 25,
+        "label": "| J / =~",
+        "conf": 54
+      },
+      {
+        "x": 51,
+        "y": 161,
+        "width": 581,
+        "height": 35,
+        "label": "Body |",
+        "conf": 90
+      },
+      {
+        "x": 6,
+        "y": 174,
+        "width": 473,
+        "height": 29,
+        "label": "‘ll BY",
+        "conf": 64
+      },
+      {
+        "x": 5,
+        "y": 198,
+        "width": 40,
+        "height": 20,
+        "label": "=|",
+        "conf": 48
+      },
+      {
+        "x": 346,
+        "y": 198,
+        "width": 37,
+        "height": 23,
+        "label": "A)",
+        "conf": 69
+      },
+      {
+        "x": 127,
+        "y": 213,
+        "width": 62,
+        "height": 16,
+        "label": "Inferior",
+        "conf": 97
+      },
+      {
+        "x": 125,
+        "y": 232,
+        "width": 373,
+        "height": 30,
+        "label": "(| articular",
+        "conf": 72
+      },
+      {
+        "x": 298,
+        "y": 248,
+        "width": 6,
+        "height": 9,
+        "label": "d",
+        "conf": 53
+      },
+      {
+        "x": 394,
+        "y": 253,
+        "width": 30,
+        "height": 23,
+        "label": "7X",
+        "conf": 58
+      },
+      {
+        "x": 126,
+        "y": 267,
+        "width": 71,
+        "height": 16,
+        "label": "process",
+        "conf": 96
+      },
+      {
+        "x": 482,
+        "y": 280,
+        "width": 9,
+        "height": 18,
+        "label": "U",
+        "conf": 46
+      },
+      {
+        "x": 18,
+        "y": 295,
+        "width": 481,
+        "height": 30,
+        "label": "AV Sea",
+        "conf": 47
+      },
+      {
+        "x": 22,
+        "y": 313,
+        "width": 441,
+        "height": 31,
+        "label": "a ara",
+        "conf": 44
+      },
+      {
+        "x": 303,
+        "y": 330,
+        "width": 36,
+        "height": 34,
+        "label": "Uo",
+        "conf": 56
+      },
+      {
+        "x": 333,
+        "y": 388,
+        "width": 16,
+        "height": 9,
+        "label": "a",
+        "conf": 48
+      },
+      {
+        "x": 366,
+        "y": 405,
+        "width": 19,
+        "height": 6,
+        "label": "Ss",
+        "conf": 45
+      },
+      {
+        "x": 126,
+        "y": 410,
+        "width": 311,
+        "height": 24,
+        "label": "i Spinous",
+        "conf": 71
+      },
+      {
+        "x": 297,
+        "y": 425,
+        "width": 24,
+        "height": 18,
+        "label": "a",
+        "conf": 43
+      },
+      {
+        "x": 126,
+        "y": 439,
+        "width": 262,
+        "height": 23,
+        "label": "| process",
+        "conf": 89
+      },
+      {
+        "x": 517,
+        "y": 466,
+        "width": 120,
+        "height": 15,
+        "label": "Intervertebral",
+        "conf": 97
+      },
+      {
+        "x": 515,
+        "y": 491,
+        "width": 36,
+        "height": 15,
+        "label": "disc",
+        "conf": 96
+      },
+      {
+        "x": 277,
+        "y": 568,
+        "width": 222,
+        "height": 19,
+        "label": "Inferior articular process",
+        "conf": 93
+      }
+    ]
+  },
+  {
+    "file": "/workspace/work/vertebral1/plates/902_Intervertebral_Disk-02.jpg",
+    "boxes": [
+      {
+        "x": 877,
+        "y": 127,
+        "width": 240,
+        "height": 36,
+        "label": "Vertebral body",
+        "conf": 96
+      },
+      {
+        "x": 879,
+        "y": 324,
+        "width": 296,
+        "height": 28,
+        "label": "Intervertebral disc",
+        "conf": 96
+      },
+      {
+        "x": 761,
+        "y": 421,
+        "width": 7,
+        "height": 19,
+        "label": "|",
+        "conf": 70
+      },
+      {
+        "x": 293,
+        "y": 819,
+        "width": 196,
+        "height": 29,
+        "label": "Lateral view",
+        "conf": 96
+      }
+    ]
+  }
+]

@@ -1,0 +1,649 @@
+{
+  "deck": {
+    "name": "Axial Skeleton (Vertebral Column)",
+    "desc": "Image occlusion for the vertebral column: regional curvatures, typical vertebra landmarks, cervical/thoracic/lumbar vertebrae, sacrum and coccyx, and intervertebral discs. Plates: OpenStax Anatomy & Physiology (CC BY 3.0) via Wikimedia Commons."
+  },
+  "plates": [
+    {
+      "id": "715",
+      "file": "plates/715_Vertebral_Column.jpg",
+      "width": 818,
+      "height": 781,
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/8/82/715_Vertebral_Column.jpg",
+      "license": "CC BY 3.0",
+      "boxes": [
+        {
+          "x": 434,
+          "y": 93,
+          "width": 135,
+          "height": 14,
+          "label": "Cervical vertebrae"
+        },
+        {
+          "x": 391,
+          "y": 113,
+          "width": 161,
+          "height": 16,
+          "label": "cervical curve"
+        },
+        {
+          "x": 441,
+          "y": 193,
+          "width": 129,
+          "height": 14,
+          "label": "Thoracic vertebrae"
+        },
+        {
+          "x": 388,
+          "y": 213,
+          "width": 213,
+          "height": 16,
+          "label": "thoracic curve"
+        },
+        {
+          "x": 221,
+          "y": 304,
+          "width": 360,
+          "height": 18,
+          "label": "Lumbar vertebrae"
+        },
+        {
+          "x": 427,
+          "y": 321,
+          "width": 313,
+          "height": 25,
+          "label": "lumbar curve"
+        },
+        {
+          "x": 1,
+          "y": 280,
+          "width": 97,
+          "height": 32,
+          "label": "Intervertebral disc"
+        },
+        {
+          "x": 1,
+          "y": 371,
+          "width": 56,
+          "height": 13,
+          "label": "Sacrum"
+        },
+        {
+          "x": 394,
+          "y": 382,
+          "width": 197,
+          "height": 13,
+          "label": "Sacrum"
+        },
+        {
+          "x": 466,
+          "y": 405,
+          "width": 51,
+          "height": 13,
+          "label": "Coccyx"
+        },
+        {
+          "x": 412,
+          "y": 422,
+          "width": 160,
+          "height": 16,
+          "label": "sacrococcygeal curve"
+        }
+      ],
+      "header": ""
+    },
+    {
+      "id": "716",
+      "file": "plates/716_Intervertebral_Disk.jpg",
+      "width": 1000,
+      "height": 471,
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0f/716_Intervertebral_Disk.jpg",
+      "license": "CC BY 3.0",
+      "boxes": [
+        {
+          "x": 433,
+          "y": 101,
+          "width": 200,
+          "height": 35,
+          "label": "Vertebral body"
+        },
+        {
+          "x": 434,
+          "y": 154,
+          "width": 202,
+          "height": 16,
+          "label": "Intervertebral foramen"
+        },
+        {
+          "x": 28,
+          "y": 318,
+          "width": 130,
+          "height": 18,
+          "label": "Anulus fibrosus"
+        },
+        {
+          "x": 748,
+          "y": 248,
+          "width": 130,
+          "height": 18,
+          "label": "Nucleus pulposus"
+        }
+      ],
+      "header": ""
+    },
+    {
+      "id": "718",
+      "file": "plates/718_Vertebra.jpg",
+      "width": 1092,
+      "height": 475,
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f9/718_Vertebra.jpg",
+      "license": "CC BY 3.0",
+      "boxes": [
+        {
+          "x": 1,
+          "y": 49,
+          "width": 102,
+          "height": 20,
+          "label": "Spinal cord"
+        },
+        {
+          "x": 282,
+          "y": 79,
+          "width": 72,
+          "height": 44,
+          "label": "Spinous process"
+        },
+        {
+          "x": 459,
+          "y": 84,
+          "width": 72,
+          "height": 45,
+          "label": "Transverse process"
+        },
+        {
+          "x": 120,
+          "y": 116,
+          "width": 95,
+          "height": 22,
+          "label": "Vertebral foramen"
+        },
+        {
+          "x": 1,
+          "y": 240,
+          "width": 74,
+          "height": 45,
+          "label": "Superior articular process"
+        },
+        {
+          "x": 461,
+          "y": 147,
+          "width": 156,
+          "height": 16,
+          "label": "Intervertebral disc"
+        },
+        {
+          "x": 938,
+          "y": 178,
+          "width": 130,
+          "height": 16,
+          "label": "Facet for head of rib"
+        },
+        {
+          "x": 460,
+          "y": 190,
+          "width": 100,
+          "height": 15,
+          "label": "Vertebral arch"
+        },
+        {
+          "x": 472,
+          "y": 215,
+          "width": 67,
+          "height": 15,
+          "label": "Lamina"
+        },
+        {
+          "x": 472,
+          "y": 244,
+          "width": 65,
+          "height": 16,
+          "label": "Pedicle"
+        },
+        {
+          "x": 460,
+          "y": 280,
+          "width": 46,
+          "height": 20,
+          "label": "Vertebral body"
+        },
+        {
+          "x": 1,
+          "y": 269,
+          "width": 71,
+          "height": 16,
+          "label": "Inferior articular process"
+        },
+        {
+          "x": 524,
+          "y": 320,
+          "width": 115,
+          "height": 20,
+          "label": "Spinal nerve"
+        },
+        {
+          "x": 700,
+          "y": 345,
+          "width": 120,
+          "height": 22,
+          "label": "Intervertebral foramen"
+        }
+      ],
+      "header": ""
+    },
+    {
+      "id": "719",
+      "file": "plates/719_Thoracic_Vertebra.jpg",
+      "width": 843,
+      "height": 633,
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/0/08/719_Thoracic_Vertebra.jpg",
+      "license": "CC BY 3.0",
+      "boxes": [
+        {
+          "x": 153,
+          "y": 3,
+          "width": 159,
+          "height": 19,
+          "label": "Superior articular process"
+        },
+        {
+          "x": 317,
+          "y": 8,
+          "width": 220,
+          "height": 38,
+          "label": "Facet for tubercle of rib"
+        },
+        {
+          "x": 152,
+          "y": 68,
+          "width": 120,
+          "height": 22,
+          "label": "Transverse process"
+        },
+        {
+          "x": 153,
+          "y": 120,
+          "width": 90,
+          "height": 22,
+          "label": "Pedicle"
+        },
+        {
+          "x": 706,
+          "y": 164,
+          "width": 120,
+          "height": 30,
+          "label": "Intervertebral disc"
+        },
+        {
+          "x": 28,
+          "y": 278,
+          "width": 55,
+          "height": 18,
+          "label": "Vertebral body"
+        },
+        {
+          "x": 215,
+          "y": 187,
+          "width": 66,
+          "height": 16,
+          "label": "Lamina"
+        },
+        {
+          "x": 705,
+          "y": 347,
+          "width": 137,
+          "height": 20,
+          "label": "Superior costal facet"
+        },
+        {
+          "x": 153,
+          "y": 306,
+          "width": 73,
+          "height": 20,
+          "label": "Spinous process"
+        },
+        {
+          "x": 426,
+          "y": 533,
+          "width": 120,
+          "height": 18,
+          "label": "Inferior costal facet"
+        },
+        {
+          "x": 425,
+          "y": 558,
+          "width": 172,
+          "height": 18,
+          "label": "Inferior articular process"
+        },
+        {
+          "x": 450,
+          "y": 12,
+          "width": 180,
+          "height": 28,
+          "label": "Transverse costal facet"
+        }
+      ],
+      "header": ""
+    },
+    {
+      "id": "720",
+      "file": "plates/720_Sacrum_and_Coccyx.jpg",
+      "width": 1186,
+      "height": 530,
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/6/68/720_Sacrum_and_Coccyx.jpg",
+      "license": "CC BY 3.0",
+      "boxes": [
+        {
+          "x": 127,
+          "y": 23,
+          "width": 169,
+          "height": 20,
+          "label": "Sacral promontory"
+        },
+        {
+          "x": 869,
+          "y": 3,
+          "width": 46,
+          "height": 20,
+          "label": "Vertebral body"
+        },
+        {
+          "x": 1032,
+          "y": 3,
+          "width": 154,
+          "height": 19,
+          "label": "Superior articular process"
+        },
+        {
+          "x": 200,
+          "y": 300,
+          "width": 140,
+          "height": 18,
+          "label": "Anterior sacral foramina"
+        },
+        {
+          "x": 380,
+          "y": 468,
+          "width": 55,
+          "height": 16,
+          "label": "Apex of sacrum"
+        },
+        {
+          "x": 820,
+          "y": 165,
+          "width": 110,
+          "height": 18,
+          "label": "Auricular surface"
+        },
+        {
+          "x": 1096,
+          "y": 259,
+          "width": 44,
+          "height": 14,
+          "label": "Median sacral crest"
+        },
+        {
+          "x": 643,
+          "y": 328,
+          "width": 81,
+          "height": 15,
+          "label": "Posterior sacral foramina"
+        },
+        {
+          "x": 138,
+          "y": 348,
+          "width": 115,
+          "height": 18,
+          "label": "Sacral hiatus"
+        },
+        {
+          "x": 994,
+          "y": 432,
+          "width": 67,
+          "height": 20,
+          "label": "Coccyx"
+        }
+      ],
+      "header": ""
+    },
+    {
+      "id": "723",
+      "file": "plates/723_Cervical_Vertebrae.jpg",
+      "width": 1083,
+      "height": 1240,
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/8/87/723_Cervical_Vertebrae.jpg",
+      "license": "CC BY 3.0",
+      "boxes": [
+        {
+          "x": 814,
+          "y": 21,
+          "width": 102,
+          "height": 14,
+          "label": "Dens"
+        },
+        {
+          "x": 695,
+          "y": 51,
+          "width": 90,
+          "height": 14,
+          "label": "Transverse process"
+        },
+        {
+          "x": 331,
+          "y": 96,
+          "width": 190,
+          "height": 18,
+          "label": "Bifid spinous process"
+        },
+        {
+          "x": 190,
+          "y": 131,
+          "width": 200,
+          "height": 24,
+          "label": "Vertebral foramen"
+        },
+        {
+          "x": 494,
+          "y": 195,
+          "width": 59,
+          "height": 14,
+          "label": "Pedicle"
+        },
+        {
+          "x": 191,
+          "y": 240,
+          "width": 70,
+          "height": 18,
+          "label": "Superior articular process"
+        },
+        {
+          "x": 190,
+          "y": 404,
+          "width": 90,
+          "height": 14,
+          "label": "Transverse process"
+        },
+        {
+          "x": 43,
+          "y": 792,
+          "width": 67,
+          "height": 15,
+          "label": "Transverse foramen"
+        },
+        {
+          "x": 647,
+          "y": 678,
+          "width": 67,
+          "height": 15,
+          "label": "Transverse foramen"
+        },
+        {
+          "x": 696,
+          "y": 404,
+          "width": 92,
+          "height": 18,
+          "label": "Vertebra prominens"
+        },
+        {
+          "x": 844,
+          "y": 561,
+          "width": 42,
+          "height": 14,
+          "label": "Dens"
+        },
+        {
+          "x": 397,
+          "y": 655,
+          "width": 106,
+          "height": 14,
+          "label": "Anterior arch"
+        },
+        {
+          "x": 352,
+          "y": 827,
+          "width": 114,
+          "height": 14,
+          "label": "Posterior arch"
+        },
+        {
+          "x": 327,
+          "y": 868,
+          "width": 38,
+          "height": 14,
+          "label": "Atlas"
+        },
+        {
+          "x": 911,
+          "y": 868,
+          "width": 32,
+          "height": 14,
+          "label": "Axis"
+        },
+        {
+          "x": 648,
+          "y": 747,
+          "width": 60,
+          "height": 14,
+          "label": "Lamina"
+        },
+        {
+          "x": 649,
+          "y": 1163,
+          "width": 129,
+          "height": 14,
+          "label": "Inferior articular process"
+        },
+        {
+          "x": 850,
+          "y": 1167,
+          "width": 41,
+          "height": 18,
+          "label": "Vertebral body"
+        },
+        {
+          "x": 483,
+          "y": 475,
+          "width": 45,
+          "height": 11,
+          "label": "Spinal nerve"
+        }
+      ],
+      "header": ""
+    },
+    {
+      "id": "725",
+      "file": "plates/725_Lumbar_Vertebrae.jpg",
+      "width": 638,
+      "height": 588,
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6f/725_Lumbar_Vertebrae.jpg",
+      "license": "CC BY 3.0",
+      "boxes": [
+        {
+          "x": 305,
+          "y": 3,
+          "width": 159,
+          "height": 35,
+          "label": "Superior articular process"
+        },
+        {
+          "x": 53,
+          "y": 76,
+          "width": 139,
+          "height": 44,
+          "label": "Transverse process"
+        },
+        {
+          "x": 121,
+          "y": 168,
+          "width": 80,
+          "height": 22,
+          "label": "Vertebral body"
+        },
+        {
+          "x": 126,
+          "y": 267,
+          "width": 71,
+          "height": 16,
+          "label": "Inferior articular process"
+        },
+        {
+          "x": 517,
+          "y": 466,
+          "width": 120,
+          "height": 32,
+          "label": "Intervertebral disc"
+        },
+        {
+          "x": 126,
+          "y": 439,
+          "width": 120,
+          "height": 22,
+          "label": "Spinous process"
+        },
+        {
+          "x": 277,
+          "y": 568,
+          "width": 180,
+          "height": 19,
+          "label": "Inferior articular process"
+        }
+      ],
+      "header": ""
+    },
+    {
+      "id": "902",
+      "file": "plates/902_Intervertebral_Disk-02.jpg",
+      "width": 1185,
+      "height": 855,
+      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6f/902_Intervertebral_Disk-02.jpg",
+      "license": "CC BY 3.0",
+      "boxes": [
+        {
+          "x": 877,
+          "y": 127,
+          "width": 240,
+          "height": 36,
+          "label": "Vertebral body"
+        },
+        {
+          "x": 879,
+          "y": 324,
+          "width": 296,
+          "height": 28,
+          "label": "Intervertebral disc"
+        }
+      ],
+      "header": ""
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "jobId": "vertebral1",
+  "deckName": "Axial Skeleton (Vertebral Column)",
+  "builtAt": "2026-09-30T15:58:00Z",
+  "plates": 8,
+  "occlusionCards": 79,
+  "apkg": "work/vertebral1/out/deck.apkg",
+  "missingTerms": [],
+  "notes": [
+    "OpenStax vertebral-column figure set (715–725, 716, 902) from Wikimedia Commons (CC BY 3.0).",
+    "OCR + align pipeline; manifest boxes vision-corrected for label accuracy and occlusion size (no full-width bars).",
+    "Sacral foramina satisfied via anterior/posterior sacral foramina labels on plate 720.",
+    "Image resize uses ImageMagick on Linux (sips fallback on macOS)."
+  ],
+  "sources": [
+    {
+      "id": "715",
+      "title": "715 Vertebral Column.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/8/82/715_Vertebral_Column.jpg",
+      "license": "CC BY 3.0",
+      "credit": "OpenStax College"
+    },
+    {
+      "id": "716",
+      "title": "716 Intervertebral Disk.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/0/0f/716_Intervertebral_Disk.jpg",
+      "license": "CC BY 3.0",
+      "credit": "OpenStax College"
+    },
+    {
+      "id": "718",
+      "title": "718 Vertebra.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/718_Vertebra.jpg",
+      "license": "CC BY 3.0",
+      "credit": "OpenStax College"
+    },
+    {
+      "id": "719",
+      "title": "719 Thoracic Vertebra.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/0/08/719_Thoracic_Vertebra.jpg",
+      "license": "CC BY 3.0",
+      "credit": "OpenStax College"
+    },
+    {
+      "id": "720",
+      "title": "720 Sacrum and Coccyx.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/6/68/720_Sacrum_and_Coccyx.jpg",
+      "license": "CC BY 3.0",
+      "credit": "OpenStax College"
+    },
+    {
+      "id": "723",
+      "title": "723 Cervical Vertebrae.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/8/87/723_Cervical_Vertebrae.jpg",
+      "license": "CC BY 3.0",
+      "credit": "OpenStax College"
+    },
+    {
+      "id": "725",
+      "title": "725 Lumbar Vertebrae.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/725_Lumbar_Vertebrae.jpg",
+      "license": "CC BY 3.0",
+      "credit": "OpenStax College"
+    },
+    {
+      "id": "902",
+      "title": "902 Intervertebral Disk-02.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/902_Intervertebral_Disk-02.jpg",
+      "license": "CC BY 3.0",
+      "credit": "OpenStax College"
+    }
+  ]
+}

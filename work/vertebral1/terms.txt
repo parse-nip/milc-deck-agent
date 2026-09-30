@@ -1,0 +1,46 @@
+# Vertebral column — canonical labels (OpenStax A&P plates in this deck)
+Cervical vertebrae
+Thoracic vertebrae
+Lumbar vertebrae
+Sacrum
+Coccyx
+cervical curve
+thoracic curve
+lumbar curve
+sacrococcygeal curve
+Vertebral body
+Vertebral arch
+Vertebral foramen
+Spinous process
+Transverse process
+Lamina
+Pedicle
+Superior articular process
+Inferior articular process
+Intervertebral foramen
+Atlas
+Axis
+Dens
+Transverse foramen
+Bifid spinous process
+Vertebra prominens
+Superior costal facet
+Inferior costal facet
+Transverse costal facet
+Facet for head of rib
+Facet for tubercle of rib
+Sacral foramina
+Median sacral crest
+Auricular surface
+Sacral hiatus
+Sacral promontory
+Apex of sacrum
+Anterior sacral foramina
+Posterior sacral foramina
+Intervertebral disc
+Anulus fibrosus
+Nucleus pulposus
+Spinal nerve
+Spinal cord
+Anterior arch
+Posterior arch
