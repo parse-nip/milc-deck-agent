@@ -11,8 +11,9 @@ This repo builds **complete** image-occlusion Anki decks. The CLIs are the produ
 
 ## Do not code (default)
 
-- **Do not edit `src/`, `bin/`, tests, or package files** unless a CLI hard-fails on this VM and the error is clearly an environment gap (e.g. missing `sips` on Linux → ImageMagick already handled).
-- If something "should work" and doesn't, try install/apt/`npm install` first. Only then patch tooling — smallest possible change — and note why in `report.json`.
+- **Do not edit `src/`, `bin/`, tests, or package files.** The pipeline is already Linux-ready.
+- If `deck resize` / image size fails: run **`apt-get install -y imagemagick`** (or ensure `sips` on macOS). Errors say this explicitly. **Never edit `src/download.ts`.**
+- If something else hard-fails: install deps / `npm install` first. Only patch tooling as a last resort, smallest change, note why in `report.json`.
 - **Never** "improve" align/OCR/pack logic mid-job. Fix `work/<id>/manifest.json` instead.
 - Prefer short CLI JSON. Do not cat large files or images into chat.
 
@@ -24,8 +25,9 @@ This repo builds **complete** image-occlusion Anki decks. The CLIs are the produ
 4. `deck lint --fix` only strips offenders if you choose to; then re-box dropped labels with vision. Do not silently ship without coverage.
 5. Small **unmasked** printed labels are intentional (not quizzing those). Giant bars are bugs.
 6. Header / Footer / Remarks / Sources empty on cards. Attribution on deck `desc` / `report.json`.
-7. No subagent swarms. One agent.
-8. Models: Composer 2.5 standard (cost) or Grok 4.7 standard (harder vision). No Opus unless asked.
+7. Resize uses **sips → magick → mogrify → convert** already. Missing tools ⇒ install ImageMagick, don't code.
+8. No subagent swarms. One agent.
+9. Models: Composer 2.5 standard (cost) or Grok 4.7 standard (harder vision). No Opus unless asked.
 
 ## Workflow
 

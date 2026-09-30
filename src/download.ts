@@ -7,6 +7,18 @@ import { catalogSearch, type CatalogPlate } from "./catalog.js";
 
 const UA = "milc-deck-agent/0.1 (https://github.com/parse-nip/milc-deck-agent)";
 
+function tryExec(bin: string, args: string[], opts?: { encoding?: "utf8"; stdio?: "ignore" }): string | null {
+  try {
+    if (opts?.stdio === "ignore") {
+      execFileSync(bin, args, { stdio: "ignore" });
+      return "";
+    }
+    return execFileSync(bin, args, { encoding: "utf8" });
+  } catch {
+    return null;
+  }
+}
+
 export async function downloadUrl(url: string, dest: string): Promise<{ path: string; bytes: number }> {
   mkdirSync(dirname(dest), { recursive: true });
   const res = await fetch(url, { headers: { "User-Agent": UA } });
@@ -35,52 +47,75 @@ export async function downloadCatalogPlates(topic: string, destDir: string): Pro
       plates.push({ ...hit, localPath, bytes: readFileSync(localPath).byteLength });
     }
   }
-  writeFileSync(join(destDir, "sources.json"), JSON.stringify(plates.map((p) => ({
-    id: p.id,
-    url: p.url,
-    license: p.license,
-    credit: p.credit,
-    localPath: basename(p.localPath),
-  })), null, 2) + "\n");
+  writeFileSync(
+    join(destDir, "sources.json"),
+    JSON.stringify(
+      plates.map((p) => ({
+        id: p.id,
+        url: p.url,
+        license: p.license,
+        credit: p.credit,
+        localPath: basename(p.localPath),
+      })),
+      null,
+      2
+    ) + "\n"
+  );
   return { dir: destDir, plates };
 }
 
+/** Read pixel size via macOS sips or ImageMagick (identify / magick). */
 export function imageSize(path: string): { width: number; height: number } {
-  try {
-    const out = execFileSync("sips", ["-g", "pixelWidth", "-g", "pixelHeight", path], {
-      encoding: "utf8",
-    });
-    const width = Number(/pixelWidth:\s*(\d+)/.exec(out)?.[1]);
-    const height = Number(/pixelHeight:\s*(\d+)/.exec(out)?.[1]);
+  const sips = tryExec("sips", ["-g", "pixelWidth", "-g", "pixelHeight", path], { encoding: "utf8" });
+  if (sips) {
+    const width = Number(/pixelWidth:\s*(\d+)/.exec(sips)?.[1]);
+    const height = Number(/pixelHeight:\s*(\d+)/.exec(sips)?.[1]);
     if (width > 0 && height > 0) return { width, height };
-  } catch {
-    // fall through — Linux cloud agents use ImageMagick
   }
-  try {
-    const out = execFileSync("identify", ["-format", "%w %h", path], { encoding: "utf8" }).trim();
+
+  for (const args of [
+    ["identify", ["-format", "%w %h", path]],
+    ["magick", ["identify", "-format", "%w %h", path]],
+  ] as const) {
+    const out = tryExec(args[0], [...args[1]], { encoding: "utf8" })?.trim();
+    if (!out) continue;
     const [w, h] = out.split(/\s+/).map(Number);
     if (w > 0 && h > 0) return { width: w, height: h };
-  } catch {
-    // fall through
   }
-  throw new Error(`could not read image size for ${path} (need macOS sips or ImageMagick identify)`);
+
+  throw new Error(
+    `could not read image size for ${path}. Install ImageMagick (apt-get install -y imagemagick) or use macOS sips. Do not edit src/download.ts.`
+  );
 }
 
-/** Resize so long edge is maxEdge; returns new size. Mutates file in place via sips or convert. */
+/**
+ * Resize so long edge is maxEdge. Mutates file in place.
+ * Tries: sips → magick → mogrify → convert (covers macOS + IM6/IM7 Linux).
+ */
 export function resizeLongEdge(path: string, maxEdge = 1600): { width: number; height: number; scaled: boolean } {
   const before = imageSize(path);
   const long = Math.max(before.width, before.height);
   if (long <= maxEdge) return { ...before, scaled: false };
+
   const useWidth = before.width >= before.height;
-  try {
-    const args = useWidth
-      ? ["--resampleWidth", String(maxEdge), path]
-      : ["--resampleHeight", String(maxEdge), path];
-    execFileSync("sips", args, { stdio: "ignore" });
-  } catch {
-    const dim = useWidth ? `${maxEdge}x` : `x${maxEdge}`;
-    execFileSync("convert", [path, "-resize", dim, path], { stdio: "ignore" });
+  const geometry = useWidth ? `${maxEdge}x` : `x${maxEdge}`;
+
+  const sipsArgs = useWidth
+    ? ["--resampleWidth", String(maxEdge), path]
+    : ["--resampleHeight", String(maxEdge), path];
+
+  const ok =
+    tryExec("sips", sipsArgs, { stdio: "ignore" }) !== null ||
+    tryExec("magick", [path, "-resize", geometry, path], { stdio: "ignore" }) !== null ||
+    tryExec("mogrify", ["-resize", geometry, path], { stdio: "ignore" }) !== null ||
+    tryExec("convert", [path, "-resize", geometry, path], { stdio: "ignore" }) !== null;
+
+  if (!ok) {
+    throw new Error(
+      `could not resize ${path}. Install ImageMagick (apt-get install -y imagemagick) or use macOS sips. Do not edit src/download.ts.`
+    );
   }
+
   const after = imageSize(path);
   return { ...after, scaled: true };
 }
