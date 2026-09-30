@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://milc.app/schemas/deck-manifest.json",
+  "title": "DeckManifest",
+  "type": "object",
+  "required": ["deck", "plates"],
+  "properties": {
+    "deck": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string" },
+        "desc": { "type": "string" }
+      }
+    },
+    "plates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "file", "width", "height", "boxes"],
+        "properties": {
+          "id": { "type": "string" },
+          "file": { "type": "string", "description": "Path relative to manifest or absolute" },
+          "width": { "type": "integer" },
+          "height": { "type": "integer" },
+          "header": { "type": "string", "default": "" },
+          "sourceUrl": { "type": "string" },
+          "license": { "type": "string" },
+          "boxes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["x", "y", "width", "height", "label"],
+              "properties": {
+                "x": { "type": "number" },
+                "y": { "type": "number" },
+                "width": { "type": "number" },
+                "height": { "type": "number" },
+                "label": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "milc-deck-agent",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Slim repo for agent-built Anki image-occlusion decks. Optimized for speed and token cost.",
+  "scripts": {
+    "deck": "tsx bin/deck.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "jszip": "^3.10.2",
+    "sql.js": "^1.14.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.2",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.7"
+  }
+}

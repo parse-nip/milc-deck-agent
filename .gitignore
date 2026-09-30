@@ -1,0 +1,16 @@
+node_modules/
+dist/
+out/
+.tmp/
+tmp/
+*.apkg
+*.zip
+.env
+.env.*
+!.env.example
+.DS_Store
+work/
+jobs/*/
+!jobs/.gitkeep
+*.log
+.cursor/cache/

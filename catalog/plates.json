@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "notes": "Curated OpenStax / Commons plates. Prefer these over open search when topic matches.",
+  "plates": [
+    {
+      "id": "openstax-skull-anterior",
+      "topics": ["skull", "axial-skeleton", "cranium"],
+      "view": "anterior",
+      "title": "704 Skull (OpenStax)",
+      "commonsTitle": "File:704 Skull-01.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/704_Skull-01.jpg",
+      "license": "CC BY 3.0",
+      "credit": "OpenStax College"
+    },
+    {
+      "id": "openstax-skull-lateral",
+      "topics": ["skull", "axial-skeleton", "cranium"],
+      "view": "lateral",
+      "title": "705 Lateral View of Skull (OpenStax)",
+      "commonsTitle": "File:705 Lateral View of Skull-01.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/705_Lateral_View_of_Skull-01.jpg",
+      "license": "CC BY 3.0",
+      "credit": "OpenStax College"
+    },
+    {
+      "id": "openstax-skull-sagittal",
+      "topics": ["skull", "axial-skeleton", "cranium"],
+      "view": "sagittal",
+      "title": "706 Sagittal Section of Skull (OpenStax)",
+      "commonsTitle": "File:706 Sagittal Section of Skull-01.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/4/46/706_Sagittal_Section_of_Skull-01.jpg",
+      "license": "CC BY 3.0",
+      "credit": "OpenStax College"
+    },
+    {
+      "id": "openstax-skull-base",
+      "topics": ["skull", "axial-skeleton", "cranium"],
+      "view": "base",
+      "title": "707 Superior-Inferior View of Skull Base (OpenStax)",
+      "commonsTitle": "File:707 Superior-Inferior View of Skull Base-01.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/707_Superior-Inferior_View_of_Skull_Base-01.jpg",
+      "license": "CC BY 3.0",
+      "credit": "OpenStax College"
+    }
+  ]
+}
