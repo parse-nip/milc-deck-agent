@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { cpSync, mkdirSync, writeFileSync, existsSync, readdirSync } from "node:fs";
-import { join, resolve, basename } from "node:path";
+import { join, resolve, basename, dirname } from "node:path";
 import { searchCommons } from "../src/commons.js";
 import { catalogSearch } from "../src/catalog.js";
 import { ocrMany, writeOcrJson } from "../src/ocr.js";
@@ -8,6 +8,8 @@ import { loadManifest, packManifest } from "../src/pack.js";
 import { missingFromPaths, readTermsFile } from "../src/missing.js";
 import { manifestFromOcr, readJson, writeJson, type OcrPlate } from "../src/align.js";
 import { downloadCatalogPlates, imageSize, resizeLongEdge } from "../src/download.js";
+import { buildApkgPreview } from "../src/preview-apkg.js";
+import { lintManifest, stripBadBoxes } from "../src/lint.js";
 
 function print(data: unknown) {
   process.stdout.write(`${JSON.stringify(data, null, 2)}\n`);
@@ -25,9 +27,11 @@ function usage(): never {
       "deck ocr <image...> [-o out.json]",
       "deck align <ocr.json> <terms.txt> --plates <dir> -o manifest.json",
       "deck missing <manifest.json> <terms.txt>",
-      "deck pack <manifest.json> [-o out.apkg]",
+      "deck lint <manifest.json> [--fix]",
+      "deck pack <manifest.json> [-o out.apkg] [--force]",
+      "deck preview <deck.apkg> [-o outDir]",
     ],
-    tip: "Full decks + accurate labels. Use vision to fix OCR misses — not to skip the pipeline.",
+    tip: "Full decks + accurate labels. Run deck lint before pack. Fix too_wide bars with vision.",
   });
   process.exit(0);
 }
@@ -188,14 +192,83 @@ async function main() {
     return;
   }
 
-  if (cmd === "pack") {
+  if (cmd === "lint") {
     const args = [...rest];
-    const out = takeFlag(args, "-o") ?? "out/deck.apkg";
-    const manifestPath = args[0];
+    const fix = args.includes("--fix");
+    const filtered = args.filter((a) => a !== "--fix");
+    const manifestPath = filtered[0];
     if (!manifestPath) throw new Error("manifest path required");
     const resolved = resolve(manifestPath);
-    const result = await packManifest(loadManifest(resolved), resolved, resolve(out));
-    print(result);
+    const manifest = loadManifest(resolved);
+    const result = lintManifest(manifest);
+    if (fix && !result.ok) {
+      const cleaned = stripBadBoxes(manifest);
+      writeJson(resolved, cleaned.manifest);
+      print({
+        ...lintManifest(cleaned.manifest),
+        fixed: true,
+        removed: cleaned.removed.length,
+        removedSample: cleaned.removed.slice(0, 20).map((i) => ({
+          plate: i.plateId,
+          label: i.label,
+          code: i.code,
+          detail: i.detail,
+        })),
+      });
+      return;
+    }
+    print({
+      ...result,
+      issues: result.issues.map((i) => ({
+        plate: i.plateId,
+        label: i.label,
+        code: i.code,
+        detail: i.detail,
+        widthFrac: Number(i.widthFrac.toFixed(3)),
+        heightFrac: Number(i.heightFrac.toFixed(3)),
+      })),
+    });
+    if (!result.ok) process.exit(2);
+    return;
+  }
+
+  if (cmd === "pack") {
+    const args = [...rest];
+    const force = args.includes("--force");
+    const filtered = args.filter((a) => a !== "--force");
+    const out = takeFlag(filtered, "-o") ?? "out/deck.apkg";
+    const manifestPath = filtered[0];
+    if (!manifestPath) throw new Error("manifest path required");
+    const resolved = resolve(manifestPath);
+    const manifest = loadManifest(resolved);
+    const lint = lintManifest(manifest);
+    if (!lint.ok && !force) {
+      print({
+        error: "lint_failed",
+        message: "Fix too_wide/too_tall boxes (or deck lint --fix then re-box with vision). Use --force to pack anyway.",
+        issues: lint.issues.slice(0, 30).map((i) => ({
+          plate: i.plateId,
+          label: i.label,
+          code: i.code,
+          detail: i.detail,
+        })),
+        count: lint.issues.length,
+      });
+      process.exit(2);
+    }
+    const result = await packManifest(manifest, resolved, resolve(out));
+    print({ ...result, lintOk: lint.ok, lintIssues: lint.issues.length });
+    return;
+  }
+
+  if (cmd === "preview") {
+    const args = [...rest];
+    const out = takeFlag(args, "-o");
+    const apkg = args[0];
+    if (!apkg) throw new Error("apkg path required");
+    const resolved = resolve(apkg);
+    const outDir = resolve(out ?? join(dirname(resolved), "preview"));
+    print(await buildApkgPreview(resolved, outDir));
     return;
   }
 

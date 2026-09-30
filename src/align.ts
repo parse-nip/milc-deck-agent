@@ -23,20 +23,33 @@ function scoreMatch(ocr: string, term: string): number {
   return Math.round((hit / bt.length) * 80);
 }
 
-/** Map OCR boxes onto canonical required terms. Drops junk captions. */
+/** Map OCR boxes onto canonical required terms. Drops junk captions and geometrically impossible bars. */
 export function alignPlate(
   plate: OcrPlate,
   required: string[],
-  opts: { minScore?: number; minConf?: number } = {}
-): { boxes: ManifestBox[]; unmatchedOcr: string[]; matchedTerms: string[] } {
+  opts: { minScore?: number; minConf?: number; maxWidthFrac?: number; maxHeightFrac?: number } = {}
+): { boxes: ManifestBox[]; unmatchedOcr: string[]; matchedTerms: string[]; droppedWide: string[] } {
   const minScore = opts.minScore ?? 80;
   const minConf = opts.minConf ?? 45;
+  const maxWidthFrac = opts.maxWidthFrac ?? 0.28;
+  const maxHeightFrac = opts.maxHeightFrac ?? 0.12;
   const usedTerms = new Set<string>();
   const boxes: ManifestBox[] = [];
   const unmatchedOcr: string[] = [];
+  const droppedWide: string[] = [];
+  const pw = plate.width ?? 0;
+  const ph = plate.height ?? 0;
 
   for (const box of plate.boxes) {
     if ((box.conf ?? 100) < minConf) continue;
+    if (pw > 0 && box.width / pw > maxWidthFrac) {
+      droppedWide.push(box.label);
+      continue;
+    }
+    if (ph > 0 && box.height / ph > maxHeightFrac) {
+      droppedWide.push(box.label);
+      continue;
+    }
     let best: { term: string; score: number } | null = null;
     for (const term of required) {
       const score = scoreMatch(box.label, term);
@@ -46,7 +59,6 @@ export function alignPlate(
       unmatchedOcr.push(box.label);
       continue;
     }
-    // Allow same term on multiple plates; within one plate keep best-scoring box only if already used? Keep multiples — anatomy decks repeat landmarks.
     usedTerms.add(best.term);
     boxes.push({
       x: box.x,
@@ -57,7 +69,7 @@ export function alignPlate(
     });
   }
 
-  return { boxes, unmatchedOcr, matchedTerms: [...usedTerms] };
+  return { boxes, unmatchedOcr, matchedTerms: [...usedTerms], droppedWide };
 }
 
 export function manifestFromOcr(input: {
@@ -86,6 +98,7 @@ export function manifestFromOcr(input: {
       boxes: aligned.boxes.length,
       matchedTerms: aligned.matchedTerms,
       unmatchedOcrSample: aligned.unmatchedOcr.slice(0, 12),
+      droppedWideSample: aligned.droppedWide.slice(0, 12),
     });
   }
   return {

@@ -54,21 +54,33 @@ export function imageSize(path: string): { width: number; height: number } {
     const height = Number(/pixelHeight:\s*(\d+)/.exec(out)?.[1]);
     if (width > 0 && height > 0) return { width, height };
   } catch {
+    // fall through — Linux cloud agents use ImageMagick
+  }
+  try {
+    const out = execFileSync("identify", ["-format", "%w %h", path], { encoding: "utf8" }).trim();
+    const [w, h] = out.split(/\s+/).map(Number);
+    if (w > 0 && h > 0) return { width: w, height: h };
+  } catch {
     // fall through
   }
-  throw new Error(`could not read image size for ${path} (need macOS sips)`);
+  throw new Error(`could not read image size for ${path} (need macOS sips or ImageMagick identify)`);
 }
 
-/** Resize so long edge is maxEdge; returns new size. Mutates file in place via sips. */
+/** Resize so long edge is maxEdge; returns new size. Mutates file in place via sips or convert. */
 export function resizeLongEdge(path: string, maxEdge = 1600): { width: number; height: number; scaled: boolean } {
   const before = imageSize(path);
   const long = Math.max(before.width, before.height);
   if (long <= maxEdge) return { ...before, scaled: false };
-  const args =
-    before.width >= before.height
+  const useWidth = before.width >= before.height;
+  try {
+    const args = useWidth
       ? ["--resampleWidth", String(maxEdge), path]
       : ["--resampleHeight", String(maxEdge), path];
-  execFileSync("sips", args, { stdio: "ignore" });
+    execFileSync("sips", args, { stdio: "ignore" });
+  } catch {
+    const dim = useWidth ? `${maxEdge}x` : `x${maxEdge}`;
+    execFileSync("convert", [path, "-resize", dim, path], { stdio: "ignore" });
+  }
   const after = imageSize(path);
   return { ...after, scaled: true };
 }
