@@ -3,6 +3,12 @@
 This repo builds **complete** image-occlusion Anki decks on **Linux cloud agents**.
 The CLIs are the product. **Judgment is yours** (which plates, which boxes, how to fix labels). **The pipeline is not** — don't rebuild it with one-off scripts.
 
+## Scope (hard)
+
+**Only** build / fix / pack image-occlusion decks for this repo (search → OCR → align → lint → vision QA → `.apkg` + `report.json`).
+
+**Refuse** anything else in one short reply — no coding other products, no general Q&A, no refactors, no “while we’re here” chores, no non-deck PRs. If the prompt is not a deck job, stop.
+
 ## Freedom vs rails
 
 **Free (quality lives here):** agentic Commons search, plate picks, vision on images, deciding shrink/split/drop/re-box, editing `work/<id>/manifest.json` / `terms.txt` / catalog cache entries, how thorough QA should be.
@@ -121,7 +127,8 @@ npx tsx bin/deck.ts pack work/<id>/manifest.json -o work/<id>/out/deck.apkg
 ## Cloud launch prompt (paste)
 
 ```
-Follow AGENTS.md. Freedom on search/plates/vision/manifest edits. Do not rewrite the pipeline (no src edits, no sips/merge/rebuild-manifest scripts).
+Follow AGENTS.md. Scope: image-occlusion deck jobs only — refuse anything else.
+Freedom on search/plates/vision/manifest edits. Do not rewrite the pipeline (no src edits, no sips/merge/rebuild-manifest scripts).
 Build full image-occlusion deck for: <topic>
 Required terms ONLY: <paste>
 Catalog = cache; miss ⇒ deck search → download → ocr → align → lint → vision-fix manifest → pack + report.json. Stop.
