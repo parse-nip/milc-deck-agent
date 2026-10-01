@@ -121,6 +121,56 @@
       "url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/730_Posterior_View_Skull.jpg",
       "license": "CC BY 3.0",
       "credit": "OpenStax College"
+    },
+    {
+      "id": "openstax-heart-surface",
+      "topics": ["heart", "cardiovascular", "chambers-valves"],
+      "view": "surface",
+      "title": "2005 Surface Anatomy of the Heart (OpenStax)",
+      "commonsTitle": "File:2005 Surface Anatomy of the Heart.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/3/31/2005_Surface_Anatomy_of_the_Heart.jpg",
+      "license": "CC BY 3.0",
+      "credit": "OpenStax College"
+    },
+    {
+      "id": "openstax-heart-internal",
+      "topics": ["heart", "cardiovascular", "chambers-valves"],
+      "view": "internal-frontal",
+      "title": "2008 Internal Anatomy of the Heart (OpenStax)",
+      "commonsTitle": "File:2008 Internal Anatomy of the HeartN.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/9/92/2008_Internal_Anatomy_of_the_HeartN.jpg",
+      "license": "CC BY 3.0",
+      "credit": "OpenStax College"
+    },
+    {
+      "id": "openstax-heart-valves",
+      "topics": ["heart", "cardiovascular", "chambers-valves"],
+      "view": "valves-superior",
+      "title": "2011 Heart Valves (OpenStax)",
+      "commonsTitle": "File:2011 Heart Valves.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/2011_Heart_Valves.jpg",
+      "license": "CC BY 3.0",
+      "credit": "OpenStax College"
+    },
+    {
+      "id": "openstax-heart-chordae",
+      "topics": ["heart", "cardiovascular", "chambers-valves"],
+      "view": "chordae-dissection",
+      "title": "2010 Chordae Tendinae Papillary Muscles (OpenStax)",
+      "commonsTitle": "File:2010 Chordae Tendinae Papillary Muscles.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/a/a7/2010_Chordae_Tendinae_Papillary_Muscles.jpg",
+      "license": "CC BY 3.0",
+      "credit": "OpenStax College"
+    },
+    {
+      "id": "openstax-heart-ventricular-thickness",
+      "topics": ["heart", "cardiovascular", "chambers-valves"],
+      "view": "ventricular-thickness",
+      "title": "2007 Ventricular Muscle Thickness (OpenStax)",
+      "commonsTitle": "File:2007 Ventricular Muscle Thickness.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/8/89/2007_Ventricular_Muscle_Thickness.jpg",
+      "license": "CC BY 3.0",
+      "credit": "OpenStax College"
     }
   ]
 }
