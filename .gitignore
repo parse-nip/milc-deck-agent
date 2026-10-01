@@ -4,6 +4,8 @@ out/
 .tmp/
 tmp/
 *.apkg
+!artifacts/
+!artifacts/deck.apkg
 *.zip
 .env
 .env.*
