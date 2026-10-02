@@ -1,0 +1,8 @@
+{
+  "topic": "skull",
+  "deckName": "Axial Skeleton (Skull)",
+  "desc": "Image occlusion for bones, sutures, and landmarks of the skull. Plates: OpenStax Anatomy & Physiology (CC BY 3.0).",
+  "requiredTermsFile": "examples/skull/terms.txt",
+  "maxPlates": 12,
+  "notes": "Full skull deck — all catalog plates. Labels must match printed OpenStax terms (canonical names from terms.txt)."
+}
