@@ -121,6 +121,16 @@
       "url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/730_Posterior_View_Skull.jpg",
       "license": "CC BY 3.0",
       "credit": "OpenStax College"
+    },
+    {
+      "id": "openstax-hand-wrist",
+      "topics": ["wrist", "hand", "appendicular-skeleton"],
+      "view": "anterior-posterior",
+      "title": "806 Hand and Wrist (OpenStax)",
+      "commonsTitle": "File:806 Hand and Wrist.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/4/41/806_Hand_and_Wrist.jpg",
+      "license": "CC BY 3.0",
+      "credit": "OpenStax College"
     }
   ]
 }
