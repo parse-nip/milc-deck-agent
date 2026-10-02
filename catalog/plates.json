@@ -121,6 +121,26 @@
       "url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/730_Posterior_View_Skull.jpg",
       "license": "CC BY 3.0",
       "credit": "OpenStax College"
+    },
+    {
+      "id": "openstax-humerus-elbow",
+      "topics": ["forearm", "upper-limb", "appendicular-skeleton", "humerus"],
+      "view": "humerus-elbow",
+      "title": "804 Humerus and Elbow (OpenStax)",
+      "commonsTitle": "File:804 Humerus and Elbow.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/0/04/804_Humerus_and_Elbow.jpg",
+      "license": "CC BY 3.0",
+      "credit": "OpenStax College"
+    },
+    {
+      "id": "openstax-ulna-radius",
+      "topics": ["forearm", "upper-limb", "appendicular-skeleton", "ulna", "radius"],
+      "view": "forearm-bones",
+      "title": "805 Ulna and Radius (OpenStax)",
+      "commonsTitle": "File:805 Ulna and Radius.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/a/ae/805_Ulna_and_Radius.jpg",
+      "license": "CC BY 3.0",
+      "credit": "OpenStax College"
     }
   ]
 }
