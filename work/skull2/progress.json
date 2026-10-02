@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "id": "find",
+      "label": "Find plates",
+      "order": 1,
+      "status": "done"
+    },
+    {
+      "id": "fetch",
+      "label": "Download / resize",
+      "order": 2,
+      "status": "done"
+    },
+    {
+      "id": "ocr",
+      "label": "OCR",
+      "order": 3,
+      "status": "done"
+    },
+    {
+      "id": "align",
+      "label": "Align labels",
+      "order": 4,
+      "status": "done"
+    },
+    {
+      "id": "qa",
+      "label": "Lint / vision fix",
+      "order": 5,
+      "status": "done"
+    },
+    {
+      "id": "pack",
+      "label": "Pack deck",
+      "order": 6,
+      "status": "done"
+    }
+  ],
+  "current": "pack",
+  "updatedAt": "2026-10-02T21:47:40.293Z",
+  "lastHint": "step:pack:done"
+}

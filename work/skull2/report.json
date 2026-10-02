@@ -1,0 +1,28 @@
+{
+  "jobId": "skull2",
+  "topic": "skull",
+  "deckName": "Axial Skeleton (Skull)",
+  "completedAt": "2026-10-02T21:47:30.000Z",
+  "plates": 12,
+  "occlusionNotes": 167,
+  "requiredTerms": 46,
+  "missingTerms": [],
+  "lintOk": true,
+  "apkg": "work/skull2/out/deck.apkg",
+  "attribution": "OpenStax Anatomy & Physiology illustrations (CC BY 3.0), Wikimedia Commons.",
+  "plateIds": [
+    "openstax-skull-anterior",
+    "openstax-skull-lateral",
+    "openstax-skull-sagittal",
+    "openstax-skull-base",
+    "openstax-temporal",
+    "openstax-sphenoid",
+    "openstax-ethmoid",
+    "openstax-maxilla",
+    "openstax-hyoid",
+    "openstax-nasal-cavity",
+    "openstax-mandible",
+    "openstax-skull-posterior"
+  ],
+  "notes": "Full catalog skull run (12 OpenStax plates). Vision-fixed OCR merge boxes (too_wide) and added Mandibular condyle on mandible plate. QA overlays in work/skull2/qa/. Header/Footer/Remarks/Sources empty on cards per recipe."
+}
