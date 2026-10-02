@@ -1,5 +1,6 @@
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { dirname, isAbsolute, join, resolve } from "node:path";
+import { imageSize } from "./download.js";
 import { buildOcclusionArtifacts, fieldsFromMap, imageOcclusionNoteType } from "./anki/image-occlusion.js";
 import { exportApkg } from "./anki/exportApkg.js";
 import type { Card, Note, ParsedPackage } from "./anki/types.js";
@@ -30,6 +31,36 @@ export interface DeckManifest {
 
 export function loadManifest(path: string): DeckManifest {
   return JSON.parse(readFileSync(path, "utf8")) as DeckManifest;
+}
+
+/** Compare manifest width/height to the on-disk plate image (qa gate). */
+export function plateSizeProblems(manifest: DeckManifest, baseDir: string): string[] {
+  const problems: string[] = [];
+  for (const plate of manifest.plates) {
+    const candidates = [
+      isAbsolute(plate.file) ? plate.file : join(baseDir, plate.file),
+      join(baseDir, "plates", plate.file),
+    ];
+    let sized: { width: number; height: number } | null = null;
+    for (const path of candidates) {
+      try {
+        sized = imageSize(path);
+        break;
+      } catch {
+        /* try next */
+      }
+    }
+    if (!sized) {
+      problems.push(`${plate.id}: cannot read plate image`);
+      continue;
+    }
+    if (sized.width !== plate.width || sized.height !== plate.height) {
+      problems.push(
+        `${plate.id}: manifest ${plate.width}x${plate.height} but image is ${sized.width}x${sized.height}`
+      );
+    }
+  }
+  return problems;
 }
 
 export function labelsFromManifest(manifest: DeckManifest): string[] {
