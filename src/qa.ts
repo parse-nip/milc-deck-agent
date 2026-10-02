@@ -7,6 +7,10 @@ import { plateSizeProblems, type DeckManifest } from "./pack.js";
 
 export interface QaReport {
   manifestHash: string;
+  /** Boxes without grounding: no source, or source=vision without evidence. Must be empty. */
+  groundingIssues: string[];
+  /** Boxes placed by vision: each needs its own per-box review (a crop was rendered for it). */
+  visionBoxes: Array<{ plate: string; index: number; label: string; crop: string }>;
   lintOk: boolean;
   lintIssues: number;
   sizeProblems: string[];
@@ -27,6 +31,23 @@ function magick(args: string[]) {
     }
   }
   throw new Error("ImageMagick not found. Run: sudo apt-get install -y imagemagick");
+}
+
+/** Every box must say where it came from; vision boxes must say why they are THIS structure. */
+export function groundingIssues(manifest: DeckManifest): string[] {
+  const issues: string[] = [];
+  for (const plate of manifest.plates) {
+    plate.boxes.forEach((box, i) => {
+      const where = `${plate.id}#${i + 1} "${box.label}"`;
+      if (box.source === "ocr") return;
+      if (box.source !== "vision") {
+        issues.push(`${where}: no source — let align create it, or set source:"vision" with evidence`);
+      } else if ((box.evidence ?? "").trim().length < 20) {
+        issues.push(`${where}: source=vision needs evidence (what makes this box this structure: printed label, leader line to what)`);
+      }
+    });
+  }
+  return issues;
 }
 
 /** Draw every box + its label on each plate so the agent can LOOK at placement (vision QA). */
@@ -50,8 +71,32 @@ export function renderQaOverlays(manifest: DeckManifest, manifestPath: string): 
     magick([src, ...draw, out]);
     overlays.push({ plate: plate.id, boxes: plate.boxes.length, file: out });
   }
+  // A zoomed crop for every vision-placed box, so "is this the thumb?" is judged on the box, not the whole plate.
+  const visionBoxes: QaReport["visionBoxes"] = [];
+  for (const plate of manifest.plates) {
+    const src = isAbsolute(plate.file) ? plate.file : join(baseDir, plate.file);
+    plate.boxes.forEach((b, i) => {
+      if (b.source !== "vision") return;
+      const pad = Math.round(Math.max(b.width, b.height) * 1.5 + 60);
+      const x = Math.max(0, Math.round(b.x - pad));
+      const y = Math.max(0, Math.round(b.y - pad));
+      const w = Math.min(plate.width - x, Math.round(b.width + pad * 2));
+      const h = Math.min(plate.height - y, Math.round(b.height + pad * 2));
+      mkdirSync(join(qaDir, plate.id), { recursive: true });
+      const crop = join(qaDir, plate.id, `box-${i + 1}.png`);
+      magick([
+        src,
+        "-fill", "none", "-stroke", "red", "-strokewidth", "3",
+        "-draw", `rectangle ${b.x},${b.y} ${b.x + b.width},${b.y + b.height}`,
+        "-crop", `${w}x${h}+${x}+${y}`, "+repage", crop,
+      ]);
+      visionBoxes.push({ plate: plate.id, index: i + 1, label: b.label, crop });
+    });
+  }
   const lint = lintManifest(manifest);
   const report: QaReport = {
+    groundingIssues: groundingIssues(manifest),
+    visionBoxes,
     manifestHash: manifestHash(resolve(manifestPath)),
     lintOk: lint.ok,
     lintIssues: lint.issues.length,
@@ -63,7 +108,10 @@ export function renderQaOverlays(manifest: DeckManifest, manifestPath: string): 
 }
 
 export type QaReviewPlate = { plate: string; ok: boolean; note: string };
+export type QaReviewBox = { plate: string; index: number; ok: boolean; seen: string };
 export type QaReview = {
+  /** One entry per vision-placed box, written after opening its crop. */
+  boxes?: QaReviewBox[];
   /** Must match qa.json / current manifest hash. */
   manifestHash: string;
   /** One entry per overlay plate — written AFTER opening each qa/*.png with vision. */
@@ -81,6 +129,7 @@ export function qaDoneProblem(jobDir: string): string | null {
   if (report.manifestHash !== manifestHash(join(jobDir, "manifest.json"))) {
     return "manifest.json changed since the last `deck qa` — re-run it and re-check the overlays";
   }
+  if (report.groundingIssues?.length) return `ungrounded boxes: ${report.groundingIssues.slice(0, 5).join("; ")}`;
   if (!report.lintOk) return `lint has ${report.lintIssues} issue(s) — fix boxes, re-run \`deck qa\``;
   if (report.sizeProblems.length) return `size mismatch: ${report.sizeProblems.join("; ")}`;
 
@@ -129,6 +178,17 @@ export function qaReviewProblem(jobDir: string, report?: QaReport): string | nul
     }
     if (row.ok !== true) {
       return `qa-review.json plate "${ov.plate}" is not ok — fix manifest, re-run deck qa, update review`;
+    }
+  }
+  const seen = new Map((review.boxes ?? []).map((b) => [`${b.plate}#${b.index}`, b]));
+  for (const vb of qa.visionBoxes ?? []) {
+    const row = seen.get(`${vb.plate}#${vb.index}`);
+    if (!row) {
+      return `qa-review.json needs boxes[] entry for ${vb.plate}#${vb.index} "${vb.label}" — open ${vb.crop} and say what the red box covers`;
+    }
+    const said = (row.seen ?? "").trim();
+    if (row.ok !== true || said.length < 20 || said.toLowerCase() === vb.label.toLowerCase()) {
+      return `qa-review.json box ${vb.plate}#${vb.index} "${vb.label}": ok must be true and "seen" must describe what the box actually covers (20+ chars, not just the label)`;
     }
   }
   return null;

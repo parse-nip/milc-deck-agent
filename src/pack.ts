@@ -3,6 +3,7 @@ import { dirname, isAbsolute, join, resolve } from "node:path";
 import { buildOcclusionArtifacts, fieldsFromMap, imageOcclusionNoteType } from "./anki/image-occlusion.js";
 import { exportApkg } from "./anki/exportApkg.js";
 import type { Card, Note, ParsedPackage } from "./anki/types.js";
+import { displayedSize, readImageDim } from "./imagedim.js";
 
 export interface ManifestBox {
   x: number;
@@ -10,6 +11,12 @@ export interface ManifestBox {
   width: number;
   height: number;
   label: string;
+  /** Where the box came from. `ocr` = align matched printed text; `vision` = placed by looking at the plate. */
+  source?: "ocr" | "vision";
+  /** The text OCR actually read (source=ocr). */
+  ocrLabel?: string;
+  /** Required for source=vision: what on the plate makes this box THIS structure (printed label + leader line, etc). */
+  evidence?: string;
 }
 
 export interface ManifestPlate {
@@ -42,14 +49,52 @@ export function labelsFromManifest(manifest: DeckManifest): string[] {
   return labels;
 }
 
+export interface PackOptions {
+  /** Pack even if manifest width/height disagree with the image pixels. */
+  force?: boolean;
+  /** Deterministic id seed (tests). Default: unique per pack so decks never collide on import. */
+  seed?: number;
+}
+
+/** Throws when a manifest plate's width/height differ from the displayed image size (covers would drift). */
+export function plateSizeProblems(manifest: DeckManifest, baseDir: string): string[] {
+  const problems: string[] = [];
+  for (const plate of manifest.plates) {
+    const filePath = isAbsolute(plate.file) ? plate.file : join(baseDir, plate.file);
+    const dim = readImageDim(new Uint8Array(readFileSync(filePath)));
+    if (!dim) continue;
+    const shown = displayedSize(dim);
+    if (shown.width !== plate.width || shown.height !== plate.height) {
+      problems.push(
+        `${plate.id}: manifest ${plate.width}x${plate.height} but image displays as ${shown.width}x${shown.height}` +
+          (dim.orientation > 1 ? ` (EXIF orientation ${dim.orientation})` : "")
+      );
+    }
+  }
+  return problems;
+}
+
 export async function packManifest(
   manifest: DeckManifest,
   manifestPath: string,
-  outPath: string
+  outPath: string,
+  opts: PackOptions = {}
 ): Promise<{ notes: number; cards: number; bytes: number; outPath: string }> {
   const baseDir = dirname(resolve(manifestPath));
-  const noteType = imageOcclusionNoteType(1_720_000_000_000);
-  const deckId = 1_720_000_000_001;
+  if (!opts.force) {
+    const problems = plateSizeProblems(manifest, baseDir);
+    if (problems.length) {
+      throw new Error(
+        `size_mismatch — covers would shift on import. Re-run align (re-reads pixel size) or fix width/height:\n${problems.join("\n")}`
+      );
+    }
+  }
+  // Unique ids per pack: milc import keys notes/cards/note types by id+guid, so a fixed id range makes a
+  // second deck (or a rebuild) overwrite the first in place.
+  const seed = opts.seed ?? Date.now();
+  const tag = seed.toString(36) + (opts.seed ? "" : Math.random().toString(36).slice(2, 5));
+  const noteType = imageOcclusionNoteType(seed);
+  const deckId = seed + 1;
   const notes: Note[] = [];
   const cards: Card[] = [];
   const media: ParsedPackage["media"] = [];
@@ -65,12 +110,12 @@ export async function packManifest(
     }
     const artifacts = buildOcclusionArtifacts({
       image,
-      imageFilename: `${plate.id}.jpg`,
+      imageFilename: `${tag}-${plate.id}.jpg`,
       boxes: plate.boxes,
       header: "",
       width: plate.width,
       height: plate.height,
-      stem: `p${plate.id.replace(/[^a-z0-9]/gi, "")}`,
+      stem: `p${tag}${plate.id.replace(/[^a-z0-9]/gi, "")}`,
     });
     for (const file of artifacts.media) {
       if (seen.has(file.filename)) continue;
@@ -83,11 +128,11 @@ export async function packManifest(
       map.Sources = "";
       map.Header = "";
       map.Footer = "";
-      const id = 1_720_000_100_000 + n;
+      const id = seed + 1000 + n;
       const label = plate.boxes[index]?.label ?? "";
       notes.push({
         id,
-        guid: `dk${n.toString(36).padStart(8, "0")}`,
+        guid: `dk${tag}${n.toString(36).padStart(4, "0")}`,
         noteTypeId: noteType.id,
         fields: fieldsFromMap(noteType, map),
         tags: [plate.id, label.replaceAll(" ", "_")].filter(Boolean),

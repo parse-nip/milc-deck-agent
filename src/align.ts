@@ -23,40 +23,60 @@ function scoreMatch(ocr: string, term: string): number {
   return Math.round((hit / bt.length) * 80);
 }
 
-/** Map OCR boxes onto canonical required terms. Drops junk captions. Geometry lint is separate — do not silently drop wide bars here. */
+export type AmbiguousLabel = {
+  ocr: string;
+  box: { x: number; y: number; width: number; height: number };
+  candidates: string[];
+  reason: "several_terms" | "label_less_specific_than_term";
+};
+
+/** The plate prints fewer words than the term has ("Distal phalanx" vs "Distal phalanx of thumb"). */
+function lessSpecific(ocr: string, term: string): boolean {
+  const a = normalizeTerm(ocr);
+  const b = normalizeTerm(term);
+  return a !== b && !a.includes(b) && b.includes(a);
+}
+
+/**
+ * Map OCR boxes onto canonical required terms. Drops junk captions. Geometry lint is separate.
+ * A printed label that fits several terms (every "Distal phalanx" on a hand plate) or is less specific than the
+ * term is AMBIGUOUS: it is reported, never boxed on a guess. The agent resolves those by looking.
+ */
 export function alignPlate(
   plate: OcrPlate,
   required: string[],
   opts: { minScore?: number; minConf?: number } = {}
-): { boxes: ManifestBox[]; unmatchedOcr: string[]; matchedTerms: string[] } {
+): { boxes: ManifestBox[]; unmatchedOcr: string[]; matchedTerms: string[]; ambiguous: AmbiguousLabel[] } {
   const minScore = opts.minScore ?? 80;
   const minConf = opts.minConf ?? 45;
   const usedTerms = new Set<string>();
   const boxes: ManifestBox[] = [];
   const unmatchedOcr: string[] = [];
+  const ambiguous: AmbiguousLabel[] = [];
 
   for (const box of plate.boxes) {
     if ((box.conf ?? 100) < minConf) continue;
-    let best: { term: string; score: number } | null = null;
-    for (const term of required) {
-      const score = scoreMatch(box.label, term);
-      if (!best || score > best.score) best = { term, score };
-    }
-    if (!best || best.score < minScore) {
+    const scored = required.map((term) => ({ term, score: scoreMatch(box.label, term) }));
+    const top = Math.max(0, ...scored.map((c) => c.score));
+    if (top < minScore) {
       unmatchedOcr.push(box.label);
       continue;
     }
-    usedTerms.add(best.term);
-    boxes.push({
-      x: box.x,
-      y: box.y,
-      width: box.width,
-      height: box.height,
-      label: best.term,
-    });
+    const best = scored.filter((c) => c.score === top).map((c) => c.term);
+    const rect = { x: box.x, y: box.y, width: box.width, height: box.height };
+    if (best.length > 1) {
+      ambiguous.push({ ocr: box.label, box: rect, candidates: best, reason: "several_terms" });
+      continue;
+    }
+    if (lessSpecific(box.label, best[0])) {
+      ambiguous.push({ ocr: box.label, box: rect, candidates: best, reason: "label_less_specific_than_term" });
+      continue;
+    }
+    usedTerms.add(best[0]);
+    boxes.push({ ...rect, label: best[0], source: "ocr", ocrLabel: box.label });
   }
 
-  return { boxes, unmatchedOcr, matchedTerms: [...usedTerms] };
+  return { boxes, unmatchedOcr, matchedTerms: [...usedTerms], ambiguous };
 }
 
 export function manifestFromOcr(input: {
@@ -85,6 +105,7 @@ export function manifestFromOcr(input: {
       boxes: aligned.boxes.length,
       matchedTerms: aligned.matchedTerms,
       unmatchedOcrSample: aligned.unmatchedOcr.slice(0, 12),
+      ambiguous: aligned.ambiguous,
     });
   }
   return {

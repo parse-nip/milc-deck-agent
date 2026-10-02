@@ -37,11 +37,11 @@ describe("packManifest", () => {
         {
           id: "tiny",
           file: "plate.jpg",
-          width: 100,
-          height: 80,
+          width: 1,
+          height: 1,
           license: "CC BY 3.0",
           sourceUrl: "https://example.com",
-          boxes: [{ x: 10, y: 10, width: 20, height: 12, label: "Test label" }],
+          boxes: [{ x: 0, y: 0, width: 1, height: 1, label: "Test label" }],
         },
       ],
     };
@@ -51,5 +51,23 @@ describe("packManifest", () => {
     expect(result.notes).toBe(1);
     expect(result.cards).toBe(1);
     expect(result.bytes).toBeGreaterThan(100);
+  });
+
+  it("uses unique ids per pack and rejects size mismatches", async () => {
+    const dir = join(process.cwd(), ".tmp/pack-test");
+    mkdirSync(dir, { recursive: true });
+    writeFileSync(join(dir, "plate.jpg"), TINY_JPEG);
+    const mk = (w: number, h: number): DeckManifest => ({
+      deck: { name: "T" },
+      plates: [{ id: "tiny", file: "plate.jpg", width: w, height: h, boxes: [{ x: 0, y: 0, width: 1, height: 1, label: "a" }] }],
+    });
+    const mp = join(dir, "m2.json");
+    writeFileSync(mp, "{}");
+    await expect(packManifest(mk(100, 80), mp, join(dir, "bad.apkg"))).rejects.toThrow(/size_mismatch/);
+    await packManifest(mk(100, 80), mp, join(dir, "forced.apkg"), { force: true });
+    const a = await packManifest(mk(1, 1), mp, join(dir, "a.apkg"), { seed: 1_800_000_000_000 });
+    const b = await packManifest(mk(1, 1), mp, join(dir, "b.apkg"), { seed: 1_800_000_500_000 });
+    expect(a.bytes).toBeGreaterThan(100);
+    expect(b.bytes).toBeGreaterThan(100);
   });
 });

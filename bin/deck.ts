@@ -190,10 +190,22 @@ async function main() {
       plates,
     });
     writeJson(resolve(out), manifest);
+    const ambiguous = (report.plates as Array<{ id: string; ambiguous: unknown[] }>)
+      .filter((p) => p.ambiguous.length)
+      .map((p) => ({ plate: p.id, labels: p.ambiguous }));
+    if (ambiguous.length) writeJson(join(dirname(resolve(out)), "ambiguous.json"), ambiguous);
     print({
       out: resolve(out),
       plates: manifest.plates.length,
       boxes: manifest.plates.reduce((n, p) => n + p.boxes.length, 0),
+      ambiguousLabels: ambiguous.reduce((n, p) => n + p.labels.length, 0),
+      ...(ambiguous.length
+        ? {
+            next:
+              "ambiguous.json lists printed labels that fit several terms (e.g. every 'Distal phalanx'). They were NOT boxed. " +
+              "Resolve each by LOOKING at the plate/crop: add the box with source:'vision' + evidence, or drop the term. Never guess.",
+          }
+        : {}),
       report,
     });
     return;

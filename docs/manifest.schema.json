@@ -3,40 +3,103 @@
   "$id": "https://milc.app/schemas/deck-manifest.json",
   "title": "DeckManifest",
   "type": "object",
-  "required": ["deck", "plates"],
+  "required": [
+    "deck",
+    "plates"
+  ],
   "properties": {
     "deck": {
       "type": "object",
-      "required": ["name"],
+      "required": [
+        "name"
+      ],
       "properties": {
-        "name": { "type": "string" },
-        "desc": { "type": "string" }
+        "name": {
+          "type": "string"
+        },
+        "desc": {
+          "type": "string"
+        }
       }
     },
     "plates": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "file", "width", "height", "boxes"],
+        "required": [
+          "id",
+          "file",
+          "width",
+          "height",
+          "boxes"
+        ],
         "properties": {
-          "id": { "type": "string" },
-          "file": { "type": "string", "description": "Path relative to manifest or absolute" },
-          "width": { "type": "integer" },
-          "height": { "type": "integer" },
-          "header": { "type": "string", "default": "" },
-          "sourceUrl": { "type": "string" },
-          "license": { "type": "string" },
+          "id": {
+            "type": "string"
+          },
+          "file": {
+            "type": "string",
+            "description": "Path relative to manifest or absolute"
+          },
+          "width": {
+            "type": "integer"
+          },
+          "height": {
+            "type": "integer"
+          },
+          "header": {
+            "type": "string",
+            "default": ""
+          },
+          "sourceUrl": {
+            "type": "string"
+          },
+          "license": {
+            "type": "string"
+          },
           "boxes": {
             "type": "array",
             "items": {
               "type": "object",
-              "required": ["x", "y", "width", "height", "label"],
+              "required": [
+                "x",
+                "y",
+                "width",
+                "height",
+                "label",
+                "source"
+              ],
               "properties": {
-                "x": { "type": "number" },
-                "y": { "type": "number" },
-                "width": { "type": "number" },
-                "height": { "type": "number" },
-                "label": { "type": "string" }
+                "x": {
+                  "type": "number"
+                },
+                "y": {
+                  "type": "number"
+                },
+                "width": {
+                  "type": "number"
+                },
+                "height": {
+                  "type": "number"
+                },
+                "label": {
+                  "type": "string"
+                },
+                "source": {
+                  "enum": [
+                    "ocr",
+                    "vision"
+                  ],
+                  "description": "ocr = align matched printed text; vision = placed by looking. Required."
+                },
+                "ocrLabel": {
+                  "type": "string",
+                  "description": "Text OCR read (source=ocr)"
+                },
+                "evidence": {
+                  "type": "string",
+                  "description": "Required for source=vision: printed label + leader line/position that makes this box this structure"
+                }
               }
             }
           }
