@@ -10,6 +10,7 @@ import { manifestFromOcr, readJson, writeJson, type OcrPlate } from "../src/alig
 import { downloadCatalogPlates, imageSize, resizeLongEdge } from "../src/download.js";
 import { buildApkgPreview } from "../src/preview-apkg.js";
 import { lintManifest, stripBadBoxes } from "../src/lint.js";
+import { qaDoneProblem, renderQaOverlays } from "../src/qa.js";
 import {
   applyAgentStep,
   applyStreamPayload,
@@ -38,6 +39,7 @@ function usage(): never {
       "deck align <ocr.json> <terms.txt> --plates <dir> -o manifest.json",
       "deck missing <manifest.json> <terms.txt>",
       "deck lint <manifest.json> [--fix]",
+      "deck qa <manifest.json>   # render box overlays to qa/*.png — open every one before qa done",
       "deck pack <manifest.json> [-o out.apkg] [--force]",
       "deck preview <deck.apkg> [-o outDir]",
       "deck progress [--schema] [--apply event.json]",
@@ -268,8 +270,33 @@ async function main() {
       });
       process.exit(2);
     }
-    const result = await packManifest(manifest, resolved, resolve(out));
-    print({ ...result, lintOk: lint.ok, lintIssues: lint.issues.length });
+    // Vision QA gate: pack lives next to qa.json / qa-review.json in the job dir.
+    const jobDir = dirname(resolved);
+    const qaBlock = qaDoneProblem(jobDir);
+    if (qaBlock && !force) {
+      print({
+        error: "qa_required",
+        message: `${qaBlock} (or pack --force to skip — not for production decks)`,
+        jobDir,
+      });
+      process.exit(2);
+    }
+    const result = await packManifest(manifest, resolved, resolve(out), { force });
+    print({ ...result, lintOk: lint.ok, lintIssues: lint.issues.length, qaOk: !qaBlock });
+    return;
+  }
+
+  if (cmd === "qa") {
+    const manifestPath = rest[0];
+    if (!manifestPath) throw new Error("qa <manifest.json>");
+    const resolved = resolve(manifestPath);
+    const report = renderQaOverlays(loadManifest(resolved), resolved);
+    print({
+      ...report,
+      next:
+        "Open EVERY overlay in qa/*.png with vision. Fix bad boxes in manifest.json, re-run deck qa. " +
+        `Write qa-review.json (manifestHash ${report.manifestHash}, ok:true + note per plate). Then deck step qa done.`,
+    });
     return;
   }
 
@@ -334,6 +361,10 @@ async function main() {
       if (stepId === "ocr") {
         const ocr = join(jobDir, "ocr.json");
         if (!existsSync(ocr)) throw new Error(`ocr done requires ${ocr}`);
+      }
+      if (stepId === "qa") {
+        const problem = qaDoneProblem(jobDir);
+        if (problem) throw new Error(`qa done refused: ${problem}`);
       }
       if (stepId === "align" || stepId === "qa") {
         const manifest = join(jobDir, "manifest.json");
