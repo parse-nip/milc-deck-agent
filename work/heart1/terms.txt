@@ -1,0 +1,16 @@
+Right atrium
+Left atrium
+Right ventricle
+Left ventricle
+Tricuspid valve
+Mitral valve
+Pulmonary valve
+Aortic valve
+Interventricular septum
+Chordae tendineae
+Papillary muscle
+Superior vena cava
+Inferior vena cava
+Pulmonary trunk
+Aorta
+Pulmonary veins

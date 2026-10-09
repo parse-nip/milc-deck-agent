@@ -1,0 +1,976 @@
+[
+  {
+    "file": "/workspace/work/heart1/plates/2005_Surface_Anatomy_of_the_Heart.jpg",
+    "boxes": [
+      {
+        "x": 1692,
+        "y": 51,
+        "width": 59,
+        "height": 28,
+        "label": "Left",
+        "conf": 96
+      },
+      {
+        "x": 426,
+        "y": 51,
+        "width": 1711,
+        "height": 43,
+        "label": "carotid artery Brachiocephalic trunk",
+        "conf": 95
+      },
+      {
+        "x": 1763,
+        "y": 59,
+        "width": 140,
+        "height": 20,
+        "label": "common",
+        "conf": 96
+      },
+      {
+        "x": 425,
+        "y": 116,
+        "width": 1622,
+        "height": 48,
+        "label": "Left subclavian artery Superior vena cava",
+        "conf": 96
+      },
+      {
+        "x": 1690,
+        "y": 174,
+        "width": 177,
+        "height": 28,
+        "label": "Aortic arch",
+        "conf": 96
+      },
+      {
+        "x": 426,
+        "y": 205,
+        "width": 271,
+        "height": 36,
+        "label": "Right pulmonary",
+        "conf": 96
+      },
+      {
+        "x": 1692,
+        "y": 219,
+        "width": 391,
+        "height": 36,
+        "label": "Ligamentum arteriosum",
+        "conf": 92
+      },
+      {
+        "x": 425,
+        "y": 249,
+        "width": 96,
+        "height": 34,
+        "label": "artery",
+        "conf": 96
+      },
+      {
+        "x": 1692,
+        "y": 279,
+        "width": 355,
+        "height": 36,
+        "label": "Left pulmonary artery",
+        "conf": 96
+      },
+      {
+        "x": 424,
+        "y": 320,
+        "width": 271,
+        "height": 36,
+        "label": "Ascending aorta",
+        "conf": 96
+      },
+      {
+        "x": 426,
+        "y": 344,
+        "width": 1608,
+        "height": 57,
+        "label": "Left pulmonary veins Pulmonary trunk",
+        "conf": 96
+      },
+      {
+        "x": 426,
+        "y": 430,
+        "width": 271,
+        "height": 36,
+        "label": "Right pulmonary",
+        "conf": 96
+      },
+      {
+        "x": 1161,
+        "y": 441,
+        "width": 16,
+        "height": 40,
+        "label": "J",
+        "conf": 55
+      },
+      {
+        "x": 1690,
+        "y": 445,
+        "width": 328,
+        "height": 28,
+        "label": "Auricle of left atrium",
+        "conf": 95
+      },
+      {
+        "x": 423,
+        "y": 472,
+        "width": 85,
+        "height": 28,
+        "label": "veins",
+        "conf": 97
+      },
+      {
+        "x": 38,
+        "y": 476,
+        "width": 1088,
+        "height": 38,
+        "label": "/ Anterior view",
+        "conf": 93
+      },
+      {
+        "x": 426,
+        "y": 530,
+        "width": 1547,
+        "height": 45,
+        "label": "Circumflex artery Right atrium",
+        "conf": 95
+      },
+      {
+        "x": 426,
+        "y": 573,
+        "width": 604,
+        "height": 88,
+        "label": "Li a Right",
+        "conf": 65
+      },
+      {
+        "x": 681,
+        "y": 613,
+        "width": 1070,
+        "height": 35,
+        "label": "Left artery",
+        "conf": 97
+      },
+      {
+        "x": 522,
+        "y": 615,
+        "width": 1495,
+        "height": 34,
+        "label": "artery coronary",
+        "conf": 96
+      },
+      {
+        "x": 1763,
+        "y": 621,
+        "width": 145,
+        "height": 28,
+        "label": "coronary",
+        "conf": 96
+      },
+      {
+        "x": 1228,
+        "y": 645,
+        "width": 71,
+        "height": 39,
+        "label": "AN",
+        "conf": 71
+      },
+      {
+        "x": 424,
+        "y": 676,
+        "width": 338,
+        "height": 28,
+        "label": "Anterior cardiac vein",
+        "conf": 97
+      },
+      {
+        "x": 1383,
+        "y": 699,
+        "width": 168,
+        "height": 79,
+        "label": "UM >",
+        "conf": 53
+      },
+      {
+        "x": 1692,
+        "y": 711,
+        "width": 208,
+        "height": 28,
+        "label": "Left ventricle",
+        "conf": 97
+      },
+      {
+        "x": 426,
+        "y": 741,
+        "width": 233,
+        "height": 36,
+        "label": "Right ventricle",
+        "conf": 97
+      },
+      {
+        "x": 1351,
+        "y": 779,
+        "width": 30,
+        "height": 8,
+        "label": "—",
+        "conf": 43
+      },
+      {
+        "x": 426,
+        "y": 811,
+        "width": 1564,
+        "height": 39,
+        "label": "Great cardiac vein Right marginal artery",
+        "conf": 96
+      },
+      {
+        "x": 1272,
+        "y": 830,
+        "width": 15,
+        "height": 15,
+        "label": "q",
+        "conf": 70
+      },
+      {
+        "x": 425,
+        "y": 865,
+        "width": 1761,
+        "height": 36,
+        "label": "Anterior interventricular artery Small cardiac vein",
+        "conf": 95
+      },
+      {
+        "x": 980,
+        "y": 902,
+        "width": 10,
+        "height": 12,
+        "label": "7)",
+        "conf": 42
+      },
+      {
+        "x": 426,
+        "y": 931,
+        "width": 291,
+        "height": 28,
+        "label": "Inferior vena cava",
+        "conf": 95
+      },
+      {
+        "x": 1370,
+        "y": 960,
+        "width": 72,
+        "height": 41,
+        "label": "—",
+        "conf": 50
+      },
+      {
+        "x": 1690,
+        "y": 982,
+        "width": 83,
+        "height": 36,
+        "label": "Apex",
+        "conf": 97
+      },
+      {
+        "x": 803,
+        "y": 1171,
+        "width": 89,
+        "height": 28,
+        "label": "Aorta",
+        "conf": 97
+      },
+      {
+        "x": 1691,
+        "y": 1184,
+        "width": 318,
+        "height": 36,
+        "label": "Superior vena cava",
+        "conf": 96
+      },
+      {
+        "x": 1692,
+        "y": 1251,
+        "width": 380,
+        "height": 36,
+        "label": "Right pulmonary artery",
+        "conf": 96
+      },
+      {
+        "x": 426,
+        "y": 1278,
+        "width": 355,
+        "height": 36,
+        "label": "Left pulmonary artery",
+        "conf": 96
+      },
+      {
+        "x": 1692,
+        "y": 1319,
+        "width": 367,
+        "height": 36,
+        "label": "Right pulmonary veins",
+        "conf": 96
+      },
+      {
+        "x": 426,
+        "y": 1349,
+        "width": 342,
+        "height": 36,
+        "label": "Left pulmonary veins",
+        "conf": 96
+      },
+      {
+        "x": 1692,
+        "y": 1416,
+        "width": 198,
+        "height": 36,
+        "label": "Right atrium",
+        "conf": 96
+      },
+      {
+        "x": 424,
+        "y": 1436,
+        "width": 328,
+        "height": 28,
+        "label": "Auricle of left atrium",
+        "conf": 95
+      },
+      {
+        "x": 426,
+        "y": 1496,
+        "width": 173,
+        "height": 28,
+        "label": "Left atrium",
+        "conf": 97
+      },
+      {
+        "x": 1692,
+        "y": 1499,
+        "width": 291,
+        "height": 28,
+        "label": "Inferior vena cava",
+        "conf": 96
+      },
+      {
+        "x": 425,
+        "y": 1564,
+        "width": 1515,
+        "height": 36,
+        "label": "Coronary sinus Circumflex branch",
+        "conf": 96
+      },
+      {
+        "x": 1259,
+        "y": 1578,
+        "width": 64,
+        "height": 1,
+        "label": "—",
+        "conf": 43
+      },
+      {
+        "x": 1355,
+        "y": 1578,
+        "width": 13,
+        "height": 1,
+        "label": "NAN",
+        "conf": 68
+      },
+      {
+        "x": 40,
+        "y": 1600,
+        "width": 1023,
+        "height": 36,
+        "label": "A Posterior view",
+        "conf": 86
+      },
+      {
+        "x": 425,
+        "y": 1610,
+        "width": 90,
+        "height": 28,
+        "label": "of left",
+        "conf": 97
+      },
+      {
+        "x": 526,
+        "y": 1612,
+        "width": 255,
+        "height": 34,
+        "label": "artery coronary",
+        "conf": 96
+      },
+      {
+        "x": 1155,
+        "y": 1629,
+        "width": 37,
+        "height": 14,
+        "label": "—",
+        "conf": 78
+      },
+      {
+        "x": 1006,
+        "y": 1633,
+        "width": 984,
+        "height": 49,
+        "label": "Small cardiac vein ay ie",
+        "conf": 74
+      },
+      {
+        "x": 425,
+        "y": 1682,
+        "width": 299,
+        "height": 28,
+        "label": "Great cardiac vein",
+        "conf": 96
+      },
+      {
+        "x": 1692,
+        "y": 1698,
+        "width": 84,
+        "height": 36,
+        "label": "Right",
+        "conf": 97
+      },
+      {
+        "x": 1788,
+        "y": 1700,
+        "width": 254,
+        "height": 34,
+        "label": "artery coronary",
+        "conf": 97
+      },
+      {
+        "x": 1001,
+        "y": 1728,
+        "width": 128,
+        "height": 30,
+        "label": "CRG",
+        "conf": 53
+      },
+      {
+        "x": 426,
+        "y": 1759,
+        "width": 266,
+        "height": 28,
+        "label": "Posterior vein of",
+        "conf": 97
+      },
+      {
+        "x": 1423,
+        "y": 1780,
+        "width": 34,
+        "height": 28,
+        "label": "<_",
+        "conf": 42
+      },
+      {
+        "x": 1369,
+        "y": 1781,
+        "width": 834,
+        "height": 36,
+        "label": "Posterior interventricular artery |",
+        "conf": 88
+      },
+      {
+        "x": 426,
+        "y": 1801,
+        "width": 195,
+        "height": 28,
+        "label": "left ventricle",
+        "conf": 97
+      },
+      {
+        "x": 1181,
+        "y": 1823,
+        "width": 119,
+        "height": 39,
+        "label": "ry",
+        "conf": 76
+      },
+      {
+        "x": 426,
+        "y": 1857,
+        "width": 1580,
+        "height": 74,
+        "label": "Middle cardiac vein ~ SN. Left ventricle",
+        "conf": 84
+      },
+      {
+        "x": 1188,
+        "y": 1921,
+        "width": 119,
+        "height": 32,
+        "label": "—",
+        "conf": 52
+      },
+      {
+        "x": 889,
+        "y": 1944,
+        "width": 1036,
+        "height": 87,
+        "label": "Right ventricle WN",
+        "conf": 79
+      },
+      {
+        "x": 723,
+        "y": 2031,
+        "width": 83,
+        "height": 36,
+        "label": "Apex",
+        "conf": 97
+      }
+    ]
+  },
+  {
+    "file": "/workspace/work/heart1/plates/2006_Heart_Musculature.jpg",
+    "boxes": [
+      {
+        "x": 811,
+        "y": 433,
+        "width": 82,
+        "height": 27,
+        "label": "Atrial",
+        "conf": 96
+      },
+      {
+        "x": 812,
+        "y": 478,
+        "width": 200,
+        "height": 27,
+        "label": "musculature",
+        "conf": 97
+      },
+      {
+        "x": 802,
+        "y": 819,
+        "width": 176,
+        "height": 27,
+        "label": "Ventricular",
+        "conf": 97
+      },
+      {
+        "x": 803,
+        "y": 864,
+        "width": 201,
+        "height": 27,
+        "label": "musculature",
+        "conf": 97
+      }
+    ]
+  },
+  {
+    "file": "/workspace/work/heart1/plates/2007_Ventricular_Muscle_Thickness.jpg",
+    "boxes": [
+      {
+        "x": 120,
+        "y": 333,
+        "width": 1472,
+        "height": 446,
+        "label": "CS ae",
+        "conf": 67
+      },
+      {
+        "x": 1234,
+        "y": 1124,
+        "width": 168,
+        "height": 28,
+        "label": "ontracted",
+        "conf": 86
+      }
+    ]
+  },
+  {
+    "file": "/workspace/work/heart1/plates/2008_Internal_Anatomy_of_the_HeartN.jpg",
+    "boxes": [
+      {
+        "x": 431,
+        "y": 52,
+        "width": 88,
+        "height": 28,
+        "label": "Aorta",
+        "conf": 97
+      },
+      {
+        "x": 8,
+        "y": 137,
+        "width": 140,
+        "height": 35,
+        "label": "Superior",
+        "conf": 97
+      },
+      {
+        "x": 159,
+        "y": 137,
+        "width": 1463,
+        "height": 35,
+        "label": "Left pulmonary artery vena cava",
+        "conf": 96
+      },
+      {
+        "x": 9,
+        "y": 205,
+        "width": 376,
+        "height": 35,
+        "label": "Right pulmonary artery",
+        "conf": 96
+      },
+      {
+        "x": 1271,
+        "y": 228,
+        "width": 172,
+        "height": 28,
+        "label": "Left atrium",
+        "conf": 96
+      },
+      {
+        "x": 9,
+        "y": 288,
+        "width": 270,
+        "height": 35,
+        "label": "Pulmonary trunk",
+        "conf": 96
+      },
+      {
+        "x": 1271,
+        "y": 306,
+        "width": 342,
+        "height": 35,
+        "label": "Left pulmonary veins",
+        "conf": 97
+      },
+      {
+        "x": 9,
+        "y": 354,
+        "width": 270,
+        "height": 36,
+        "label": "Right pulmonary",
+        "conf": 96
+      },
+      {
+        "x": 7,
+        "y": 396,
+        "width": 86,
+        "height": 28,
+        "label": "veins",
+        "conf": 97
+      },
+      {
+        "x": 1271,
+        "y": 411,
+        "width": 358,
+        "height": 35,
+        "label": "Mitral (bicuspid) valve",
+        "conf": 97
+      },
+      {
+        "x": 9,
+        "y": 469,
+        "width": 197,
+        "height": 36,
+        "label": "Right atrium",
+        "conf": 97
+      },
+      {
+        "x": 481,
+        "y": 489,
+        "width": 5,
+        "height": 62,
+        "label": "|",
+        "conf": 90
+      },
+      {
+        "x": 1269,
+        "y": 504,
+        "width": 191,
+        "height": 28,
+        "label": "Aortic valve",
+        "conf": 95
+      },
+      {
+        "x": 9,
+        "y": 538,
+        "width": 205,
+        "height": 28,
+        "label": "Fossa ovalis",
+        "conf": 93
+      },
+      {
+        "x": 485,
+        "y": 557,
+        "width": 143,
+        "height": 46,
+        "label": "\\ we",
+        "conf": 58
+      },
+      {
+        "x": 7,
+        "y": 569,
+        "width": 1537,
+        "height": 52,
+        "label": "Pulmonary valve Tricuspid valve",
+        "conf": 97
+      },
+      {
+        "x": 960,
+        "y": 616,
+        "width": 8,
+        "height": 25,
+        "label": "\\",
+        "conf": 59
+      },
+      {
+        "x": 9,
+        "y": 638,
+        "width": 1470,
+        "height": 52,
+        "label": "Left ventricle Right ventricle",
+        "conf": 97
+      },
+      {
+        "x": 1032,
+        "y": 658,
+        "width": 69,
+        "height": 58,
+        "label": "A",
+        "conf": 44
+      },
+      {
+        "x": 8,
+        "y": 705,
+        "width": 1532,
+        "height": 42,
+        "label": "Papillary muscle Chordae tendineae",
+        "conf": 94
+      },
+      {
+        "x": 678,
+        "y": 721,
+        "width": 267,
+        "height": 193,
+        "label": "WS A aN",
+        "conf": 47
+      },
+      {
+        "x": 7,
+        "y": 767,
+        "width": 1640,
+        "height": 49,
+        "label": "Interventricular septum Trabeculae carneae",
+        "conf": 92
+      },
+      {
+        "x": 9,
+        "y": 824,
+        "width": 1444,
+        "height": 85,
+        "label": "Epicardium | Moderator band",
+        "conf": 94
+      },
+      {
+        "x": 1271,
+        "y": 884,
+        "width": 199,
+        "height": 35,
+        "label": "Myocardium",
+        "conf": 96
+      },
+      {
+        "x": 10,
+        "y": 938,
+        "width": 113,
+        "height": 28,
+        "label": "Inferior",
+        "conf": 96
+      },
+      {
+        "x": 134,
+        "y": 941,
+        "width": 1352,
+        "height": 28,
+        "label": "Endocardium vena cava",
+        "conf": 95
+      },
+      {
+        "x": 708,
+        "y": 1116,
+        "width": 236,
+        "height": 28,
+        "label": "Anterior view",
+        "conf": 96
+      }
+    ]
+  },
+  {
+    "file": "/workspace/work/heart1/plates/2010_Chordae_Tendinae_Papillary_Muscles.jpg",
+    "boxes": [
+      {
+        "x": 29,
+        "y": 162,
+        "width": 83,
+        "height": 81,
+        "label": "per",
+        "conf": 54
+      },
+      {
+        "x": 1257,
+        "y": 345,
+        "width": 315,
+        "height": 28,
+        "label": "Chordae tendineae",
+        "conf": 88
+      },
+      {
+        "x": 1258,
+        "y": 443,
+        "width": 287,
+        "height": 36,
+        "label": "Papillary muscles",
+        "conf": 96
+      },
+      {
+        "x": 487,
+        "y": 512,
+        "width": 25,
+        "height": 14,
+        "label": "ma",
+        "conf": 47
+      },
+      {
+        "x": 1255,
+        "y": 541,
+        "width": 332,
+        "height": 28,
+        "label": "Trabeculae carneae",
+        "conf": 91
+      },
+      {
+        "x": 403,
+        "y": 839,
+        "width": 42,
+        "height": 23,
+        "label": "<=",
+        "conf": 49
+      },
+      {
+        "x": 693,
+        "y": 1070,
+        "width": 79,
+        "height": 25,
+        "label": "lle",
+        "conf": 41
+      }
+    ]
+  },
+  {
+    "file": "/workspace/work/heart1/plates/2011_Heart_Valves.jpg",
+    "boxes": [
+      {
+        "x": 665,
+        "y": 20,
+        "width": 159,
+        "height": 28,
+        "label": "Posterior",
+        "conf": 96
+      },
+      {
+        "x": 164,
+        "y": 82,
+        "width": 242,
+        "height": 36,
+        "label": "Tricuspid valve",
+        "conf": 96
+      },
+      {
+        "x": 1190,
+        "y": 82,
+        "width": 263,
+        "height": 36,
+        "label": "Bicuspid (mitral)",
+        "conf": 94
+      },
+      {
+        "x": 737,
+        "y": 124,
+        "width": 533,
+        "height": 586,
+        "label": "alve V vw",
+        "conf": 62
+      },
+      {
+        "x": 21,
+        "y": 526,
+        "width": 92,
+        "height": 36,
+        "label": "Right",
+        "conf": 97
+      },
+      {
+        "x": 1394,
+        "y": 526,
+        "width": 65,
+        "height": 28,
+        "label": "Left",
+        "conf": 97
+      },
+      {
+        "x": 19,
+        "y": 567,
+        "width": 119,
+        "height": 28,
+        "label": "side of",
+        "conf": 97
+      },
+      {
+        "x": 1392,
+        "y": 567,
+        "width": 119,
+        "height": 28,
+        "label": "side of",
+        "conf": 96
+      },
+      {
+        "x": 21,
+        "y": 609,
+        "width": 89,
+        "height": 28,
+        "label": "heart",
+        "conf": 97
+      },
+      {
+        "x": 363,
+        "y": 609,
+        "width": 1120,
+        "height": 433,
+        "label": "heart \"ae Cr",
+        "conf": 63
+      },
+      {
+        "x": 165,
+        "y": 996,
+        "width": 190,
+        "height": 28,
+        "label": "Aortic valve",
+        "conf": 96
+      },
+      {
+        "x": 1190,
+        "y": 1008,
+        "width": 271,
+        "height": 36,
+        "label": "Pulmonary valve",
+        "conf": 97
+      },
+      {
+        "x": 672,
+        "y": 1166,
+        "width": 145,
+        "height": 28,
+        "label": "Anterior",
+        "conf": 96
+      }
+    ]
+  }
+]
